@@ -1,0 +1,30 @@
+{
+    "_comment": "Chromatix-PM Pterodactyl Egg",
+    "meta": {
+        "version": "PTDL_v2"
+    },
+    "exported_at": "2026-08-25T00:00:00+00:00",
+    "name": "Chromatix-PM",
+    "author": "SpectrumMCPE",
+    "description": "Chromatix-PM Minecraft Bedrock server for Pterodactyl.",
+    "features": [],
+    "docker_images": {
+        "ghcr.io/pterodactyl/yolks:java_21": "ghcr.io/pterodactyl/yolks:java_21"
+    },
+    "file_denylist": [],
+    "startup": "./start.sh",
+    "config": {
+        "files": "{\"pnx.yml\":{\"parser\":\"yml\",\"find\":{\"settings.language\":\"eng\",\"settings.ip\":\"0.0.0.0\",\"settings.port\":\"{{server.build.default.port}}\",\"network-settings.enableQuery\":true}}}",
+        "startup": "{\"done\":\")! For help, type \"}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\nset -e\napt-get update -qq\napt-get install -y -qq wget\nmkdir -p \/mnt\/server\ncd \/mnt\/server\nwget -O chromatix.jar https:\/\/github.com\/SpectrumMCPE\/Chromatix-MP\/releases\/download\/nightly\/chromatix.jar\ncat > start.sh <<'START_SCRIPT'\n#!\/bin\/bash\nexec java -Xms128M -Xmx${SERVER_MEMORY}M -jar chromatix.jar --skip-setup --accept-license --language eng\nSTART_SCRIPT\nchmod +x start.sh",
+            "container": "debian:bullseye-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
