@@ -3,7 +3,7 @@
     <Appenders>
         <TerminalConsole name="Console">
             <PatternLayout
-                    pattern="%cyan{%d{HH:mm:ss}} [%yellow{%t}] [%style{%highlight{%level}{STYLE=Logback}}] %minecraftFormatting{%msg}%n"/>
+                    pattern="%cyan{%d{HH:mm}} %green{%level} %minecraftFormatting{%msg}%n"/>
             <Filters>
                 <RegexFilter regex=".*Reading file /sys/class/net/.*" onMatch="DENY" onMismatch="ACCEPT"/>
             </Filters>
