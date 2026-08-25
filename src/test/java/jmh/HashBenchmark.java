@@ -1,8 +1,8 @@
 package jmh;
 
-import org.powernukkitx.utils.Binary;
-import org.powernukkitx.utils.Hash;
-import org.powernukkitx.utils.HashUtils;
+import chromatix.utils.Binary;
+import chromatix.utils.Hash;
+import chromatix.utils.HashUtils;
 import org.cloudburstmc.nbt.NbtMap;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;

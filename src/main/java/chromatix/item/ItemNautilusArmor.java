@@ -1,0 +1,13 @@
+package chromatix.item;
+
+public abstract class ItemNautilusArmor extends Item {
+
+    public ItemNautilusArmor(String id, Integer meta, int count, String name) {
+        super(id, meta, count, name);
+    }
+
+    @Override
+    public int getMaxStackSize() {
+        return 1;
+    }
+}

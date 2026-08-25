@@ -1,0 +1,22 @@
+package chromatix.event.block;
+
+import chromatix.block.Block;
+import chromatix.event.Cancellable;
+import chromatix.event.HandlerList;
+
+/**
+ * @author MagicDroidX (Nukkit Project)
+ */
+public class LeavesDecayEvent extends BlockEvent implements Cancellable {
+
+    private static final HandlerList handlers = new HandlerList();
+
+    public static HandlerList getHandlers() {
+        return handlers;
+    }
+
+    public LeavesDecayEvent(Block block) {
+        super(block);
+    }
+
+}

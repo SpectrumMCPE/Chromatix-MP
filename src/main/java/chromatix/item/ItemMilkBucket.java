@@ -1,0 +1,64 @@
+package chromatix.item;
+
+import chromatix.Player;
+import chromatix.Server;
+import chromatix.event.player.PlayerItemConsumeEvent;
+import chromatix.level.vibration.VibrationEvent;
+import chromatix.level.vibration.VibrationType;
+import chromatix.math.Vector3;
+import org.cloudburstmc.protocol.bedrock.data.inventory.ItemUseMethod;
+
+public class ItemMilkBucket extends ItemBucket {
+    public ItemMilkBucket() {
+        super(MILK_BUCKET);
+    }
+
+    @Override
+    public void setDamage(int meta) {
+
+    }
+
+    @Override
+    public boolean isConsumable() {
+        return true;
+    }
+
+    @Override
+    public int getUsingTicks() {
+        return 31;
+    }
+
+    @Override
+    public boolean onUse(Player player, int ticksUsed) {
+        if (ticksUsed < 31) {
+            return false;
+        }
+
+        PlayerItemConsumeEvent event = new PlayerItemConsumeEvent(player, this);
+        Server.getInstance().getPluginManager().callEvent(event);
+
+        if (event.isCancelled()) {
+            player.getInventory().sendContents(player);
+            return false;
+        }
+
+        player.removeAllEffects();
+
+        player.completeUsingItem(this.getRuntimeId(), ItemUseMethod.CONSUME);
+
+        if (player.isAdventure() || player.isSurvival()) {
+            --this.count;
+            player.getInventory().setItemInMainHand(this);
+            player.getInventory().addItem(Item.get(ItemID.BUCKET, 0, 1));
+        }
+
+        player.getLevel().getVibrationManager().callVibrationEvent(new VibrationEvent(player, player.add(0, player.getEyeHeight()), VibrationType.DRINKING));
+
+        return true;
+    }
+
+    @Override
+    public boolean onClickAir(Player player, Vector3 directionVector) {
+        return true;
+    }
+}

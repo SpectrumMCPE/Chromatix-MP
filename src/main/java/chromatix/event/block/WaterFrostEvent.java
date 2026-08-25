@@ -1,0 +1,29 @@
+package chromatix.event.block;
+
+import chromatix.block.Block;
+import chromatix.entity.Entity;
+import chromatix.event.Cancellable;
+import chromatix.event.HandlerList;
+
+import javax.annotation.Nullable;
+
+
+public class WaterFrostEvent extends BlockEvent implements Cancellable {
+
+    private static final HandlerList handlers = new HandlerList();
+
+    public static HandlerList getHandlers() {
+        return handlers;
+    }
+
+    protected final Entity entity;
+
+    public WaterFrostEvent(Block block, @Nullable Entity entity) {
+        super(block);
+        this.entity = entity;
+    }
+
+    public @Nullable Entity getEntity() {
+        return entity;
+    }
+}

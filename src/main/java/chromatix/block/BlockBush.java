@@ -1,0 +1,66 @@
+package chromatix.block;
+
+import chromatix.Player;
+import chromatix.item.Item;
+import chromatix.item.enchantment.Enchantment;
+import chromatix.level.Level;
+import chromatix.math.BlockFace;
+import org.jetbrains.annotations.NotNull;
+
+public class BlockBush extends BlockFlowable implements Supportable {
+
+    public static final BlockProperties PROPERTIES = new BlockProperties(BUSH);
+
+    public BlockBush() {
+        this(PROPERTIES.getDefaultState());
+    }
+
+    public BlockBush(BlockState blockstate) {
+        super(blockstate);
+    }
+
+    @Override
+    @NotNull public BlockProperties getProperties() {
+        return PROPERTIES;
+    }
+
+    @Override
+    public boolean canBeReplaced() {
+        return true;
+    }
+
+    @Override
+    public int getSnowloggingLevel() {
+        return 1;
+    }
+
+    @Override
+    public boolean place(@NotNull Item item, @NotNull Block block, @NotNull Block target, @NotNull BlockFace face, double fx, double fy, double fz, Player player) {
+        if (isSupportDirt(down())) {
+            this.getLevel().setBlock(block, this, true);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int onUpdate(int type) {
+        if (type == Level.BLOCK_UPDATE_NORMAL) {
+            if (!isSupportDirt(down(1, 0))) {
+                this.getLevel().useBreakOn(this);
+                return Level.BLOCK_UPDATE_NORMAL;
+            }
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean canHarvestWithHand() {
+        return false;
+    }
+
+    @Override
+    public boolean canHarvest(Item item) {
+        return item.isShears();
+    }
+}

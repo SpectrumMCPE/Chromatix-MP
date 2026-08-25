@@ -1,10 +1,10 @@
 package jmh;
 
-import org.powernukkitx.math.BlockFace;
-import org.powernukkitx.math.BlockVector3;
-import org.powernukkitx.math.Vector2;
-import org.powernukkitx.math.Vector3;
-import org.powernukkitx.math.VectorMath;
+import chromatix.math.BlockFace;
+import chromatix.math.BlockVector3;
+import chromatix.math.Vector2;
+import chromatix.math.Vector3;
+import chromatix.math.VectorMath;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;

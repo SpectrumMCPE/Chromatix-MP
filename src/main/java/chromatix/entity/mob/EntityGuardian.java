@@ -1,0 +1,160 @@
+package chromatix.entity.mob;
+
+import chromatix.Player;
+import chromatix.block.Block;
+import chromatix.entity.Entity;
+import chromatix.entity.EntitySwimmable;
+import chromatix.entity.ai.behavior.Behavior;
+import chromatix.entity.ai.behaviorgroup.BehaviorGroup;
+import chromatix.entity.ai.behaviorgroup.IBehaviorGroup;
+import chromatix.entity.ai.controller.DiveController;
+import chromatix.entity.ai.controller.LookController;
+import chromatix.entity.ai.controller.SpaceMoveController;
+import chromatix.entity.ai.evaluator.EntityCheckEvaluator;
+import chromatix.entity.ai.evaluator.PassByTimeEvaluator;
+import chromatix.entity.ai.evaluator.RandomSoundEvaluator;
+import chromatix.entity.ai.executor.FleeFromTargetExecutor;
+import chromatix.entity.ai.executor.GuardianAttackExecutor;
+import chromatix.entity.ai.executor.PlaySoundExecutor;
+import chromatix.entity.ai.executor.SpaceRandomRoamExecutor;
+import chromatix.entity.ai.memory.CoreMemoryTypes;
+import chromatix.entity.ai.route.finder.impl.SimpleSpaceAStarRouteFinder;
+import chromatix.entity.ai.route.posevaluator.SwimmingPosEvaluator;
+import chromatix.entity.ai.sensor.NearestPlayerSensor;
+import chromatix.entity.ai.sensor.NearestTargetEntitySensor;
+import chromatix.entity.components.HealthComponent;
+import chromatix.entity.components.MovementComponent;
+import chromatix.event.entity.EntityDamageByEntityEvent;
+import chromatix.event.entity.EntityDamageEvent;
+import chromatix.item.Item;
+import chromatix.level.Sound;
+import chromatix.level.format.IChunk;
+import chromatix.nbt.tag.CompoundTag;
+import chromatix.utils.Utils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
+
+/**
+ * @author PikyCZ
+ */
+public class EntityGuardian extends EntityMob implements EntitySwimmable {
+
+    @Override
+    @NotNull public String getIdentifier() {
+        return GUARDIAN;
+    }
+
+    public EntityGuardian(IChunk chunk, CompoundTag nbt) {
+        super(chunk, nbt);
+    }
+
+    @Override
+    public IBehaviorGroup requireBehaviorGroup() {
+        return BehaviorGroup.builder(this)
+                .behaviors(
+                        new Behavior(new PlaySoundExecutor(Sound.MOB_GUARDIAN_AMBIENT, 0.8f, 1.2f, 1, 1), all(entity -> isInsideOfWater(), new RandomSoundEvaluator()), 6, 1, 1, true),
+                        new Behavior(new PlaySoundExecutor(Sound.MOB_GUARDIAN_LAND_IDLE, 0.8f, 1.2f, 1, 1), all(entity -> !isInsideOfWater(), new RandomSoundEvaluator()), 5, 1, 1, true),
+                        new Behavior(new FleeFromTargetExecutor(CoreMemoryTypes.ATTACK_TARGET, 0.5f, true, 9), all(
+                                new EntityCheckEvaluator(CoreMemoryTypes.ATTACK_TARGET),
+                                new PassByTimeEvaluator(CoreMemoryTypes.LAST_BE_ATTACKED_TIME, 0, 100)
+                        ), 4, 1),
+                        new Behavior(new GuardianAttackExecutor(CoreMemoryTypes.NEAREST_PLAYER, 0.3f, 15, true, 60, 40), all(
+                                new EntityCheckEvaluator(CoreMemoryTypes.NEAREST_PLAYER),
+                                entity -> entity.getMemoryStorage().get(CoreMemoryTypes.NEAREST_PLAYER) != null && !entity.getMemoryStorage().get(CoreMemoryTypes.NEAREST_PLAYER).isBlocking(),
+                                entity -> entity.getMemoryStorage().get(CoreMemoryTypes.NEAREST_PLAYER) != null && getLevel().raycastBlocks(entity, entity.getMemoryStorage().get(CoreMemoryTypes.NEAREST_PLAYER)).stream().allMatch(Block::isTransparent)
+                        ), 3, 1),
+                        new Behavior(new GuardianAttackExecutor(CoreMemoryTypes.NEAREST_SUITABLE_ATTACK_TARGET, 0.3f, 15, true, 60, 40), new EntityCheckEvaluator(CoreMemoryTypes.NEAREST_SUITABLE_ATTACK_TARGET), 2, 1),
+                        new Behavior(new SpaceRandomRoamExecutor(0.36f, 12, 1, 80, false, -1, false, 10), none(), 1, 1)
+                )
+                .sensors(new NearestPlayerSensor(40, 0, 20),
+                        new NearestTargetEntitySensor<>(0, 16, 20,
+                                List.of(CoreMemoryTypes.NEAREST_SUITABLE_ATTACK_TARGET), this::attackTarget)
+                )
+                .controllers(new SpaceMoveController(), new LookController(true, true), new DiveController())
+                .routeFinder(new SimpleSpaceAStarRouteFinder(new SwimmingPosEvaluator(), this))
+                .build();
+    }
+
+    @Override
+    public boolean attack(EntityDamageEvent source) {
+        if(source.getCause() == EntityDamageEvent.DamageCause.SUFFOCATION) {
+            return false;
+        }
+        if(super.attack(source)) {
+            if(source instanceof EntityDamageByEntityEvent e) {
+                e.getDamager().attack(new EntityDamageByEntityEvent(this, source.getEntity(), EntityDamageEvent.DamageCause.THORNS, getServer().getDifficulty() == 3 ? 2 : 3));
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void initEntity() {
+        this.diffHandDamage = new float[]{4f, 6f, 9f};
+        super.initEntity();
+    }
+
+    @Override
+    public String getOriginalName() {
+        return "Guardian";
+    }
+
+    @Override
+    public Set<String> typeFamily() {
+        return Set.of("guardian", "monster", "mob");
+    }
+
+    @Override
+    public float getWidth() {
+        return 0.85f;
+    }
+
+    @Override
+    public float getHeight() {
+        return 0.85f;
+    }
+
+    @Override
+    public HealthComponent getComponentHealth() {
+        return HealthComponent.value(30);
+    }
+
+    @Override
+    protected @Nullable MovementComponent getComponentMovement() {
+        return MovementComponent.value(0.12f);
+    }
+
+    @Override
+    public boolean isPreventingSleep(Player player) {
+        return true;
+    }
+
+    @Override
+    public Item[] getDrops(@NotNull Item weapon) {
+        int secondLoot = ThreadLocalRandom.current().nextInt(6);
+        return new Item[]{
+                Item.get(Item.PRISMARINE_SHARD, 0, Utils.rand(0, 2)),
+                ThreadLocalRandom.current().nextInt(1000) <= 25 ? Item.get(Item.COD, 0, 1) : Item.AIR,
+                secondLoot <= 2 ? Item.get(Item.COD, 0, Utils.rand(0, 1)) : Item.AIR,
+                secondLoot > 2 && secondLoot <= 4 ? Item.get(Item.PRISMARINE_CRYSTALS, 0, Utils.rand(0, 1)) : Item.AIR
+        };
+    }
+
+    @Override
+    public Integer getExperienceDrops() {
+        return 10;
+    }
+
+    @Override
+    public boolean attackTarget(Entity entity) {
+        return switch (entity.getIdentifier()) {
+            case SQUID, GLOW_SQUID, AXOLOTL -> true;
+            default -> false;
+        };
+    }
+}

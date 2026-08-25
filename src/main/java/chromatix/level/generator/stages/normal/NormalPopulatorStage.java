@@ -1,0 +1,42 @@
+package chromatix.level.generator.stages.normal;
+
+import chromatix.level.generator.populator.generic.PopulatorRuinedPortal;
+import chromatix.level.generator.populator.normal.*;
+import chromatix.level.generator.stages.PopulatorStage;
+import it.unimi.dsi.fastutil.objects.ObjectArraySet;
+
+public class NormalPopulatorStage extends PopulatorStage {
+
+    public static final String NAME = "normal_populator";
+
+    public static final ObjectArraySet<String> POPULATORS = new ObjectArraySet<>(new String[] {
+            DesertWellPopulator.NAME,
+            DesertPyramidPopulator.NAME,
+            FossilPopulator.NAME,
+            IglooPopulator.NAME,
+            JungleTemplePopulator.NAME,
+            MineshaftPopulator.NAME,
+            OceanMonumentPopulator.NAME,
+            OceanRuinPopulator.NAME,
+            PillagerOutpostPopulator.NAME,
+            ShipwreckPopulator.NAME,
+            StrongholdPopulator.NAME,
+            SwampHutPopulator.NAME,
+            TrailRuinsPopulator.NAME,
+            TrialChambersPopulator.NAME,
+            VillagePopulator.NAME,
+            WoodlandMansionPopulator.NAME,
+            PopulatorRuinedPortal.NAME,
+            AncientCityPopulator.NAME
+    });
+
+    @Override
+    public ObjectArraySet<String> populators() {
+        return POPULATORS;
+    }
+
+    @Override
+    public String name() {
+        return NAME;
+    }
+}

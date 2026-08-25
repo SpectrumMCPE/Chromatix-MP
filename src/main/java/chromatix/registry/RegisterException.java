@@ -1,0 +1,17 @@
+package chromatix.registry;
+
+import chromatix.utils.exception.FormativeException;
+
+public class RegisterException extends FormativeException {
+    public RegisterException(String msg) {
+        super(msg);
+    }
+
+    public RegisterException(String format, Object... arguments) {
+        super(format, arguments);
+    }
+
+    public RegisterException(Throwable e) {
+        super(e);
+    }
+}

@@ -1,0 +1,211 @@
+package chromatix.entity.mob;
+
+import chromatix.block.Block;
+import chromatix.entity.Entity;
+import chromatix.entity.EntityVariant;
+import chromatix.entity.ai.behavior.Behavior;
+import chromatix.entity.ai.behaviorgroup.BehaviorGroup;
+import chromatix.entity.ai.behaviorgroup.IBehaviorGroup;
+import chromatix.entity.ai.controller.LookController;
+import chromatix.entity.ai.evaluator.DistanceEvaluator;
+import chromatix.entity.ai.evaluator.EntityCheckEvaluator;
+import chromatix.entity.ai.evaluator.PassByTimeEvaluator;
+import chromatix.entity.ai.evaluator.ProbabilityEvaluator;
+import chromatix.entity.ai.evaluator.RandomSoundEvaluator;
+import chromatix.entity.ai.executor.LookAtTargetExecutor;
+import chromatix.entity.ai.executor.PlaySoundExecutor;
+import chromatix.entity.ai.executor.ShulkerAttackExecutor;
+import chromatix.entity.ai.executor.ShulkerIdleExecutor;
+import chromatix.entity.ai.memory.CoreMemoryTypes;
+import chromatix.entity.ai.route.finder.impl.SimpleFlatAStarRouteFinder;
+import chromatix.entity.ai.route.posevaluator.WalkingPosEvaluator;
+import chromatix.entity.ai.sensor.NearestPlayerSensor;
+import chromatix.entity.components.HealthComponent;
+import chromatix.entity.components.MovementComponent;
+import chromatix.entity.projectile.EntityProjectile;
+import chromatix.event.entity.EntityDamageEvent;
+import chromatix.event.player.PlayerTeleportEvent;
+import chromatix.item.Item;
+import chromatix.item.enchantment.Enchantment;
+import chromatix.level.Location;
+import chromatix.level.Sound;
+import chromatix.level.format.IChunk;
+import chromatix.math.BlockFace;
+import chromatix.nbt.tag.CompoundTag;
+import chromatix.utils.Utils;
+import org.cloudburstmc.protocol.bedrock.data.SoundEvent;
+import org.cloudburstmc.protocol.bedrock.data.actor.ActorDataTypes;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
+public class EntityShulker extends EntityMob implements EntityVariant {
+
+    public int color = 0;
+
+    @Override
+    @NotNull public String getIdentifier() {
+        return SHULKER;
+    }
+    @Override
+    public IBehaviorGroup requireBehaviorGroup() {
+        return BehaviorGroup.builder(this)
+                .coreBehaviors(
+                        new Behavior(new LookAtTargetExecutor(CoreMemoryTypes.NEAREST_PLAYER, 100), new ProbabilityEvaluator(4, 10), 2, 1),
+                        new Behavior(new PlaySoundExecutor(Sound.MOB_SHULKER_AMBIENT, 0.8f, 1.2f, 0.8f, 0.8f), new RandomSoundEvaluator(20, 20), 1, 1)
+                )
+                .behaviors(
+                        new Behavior(new ShulkerIdleExecutor(), new RandomSoundEvaluator(20, 10), 2, 1),
+                        new Behavior(new ShulkerAttackExecutor(CoreMemoryTypes.NEAREST_PLAYER), all(
+                                new EntityCheckEvaluator(CoreMemoryTypes.NEAREST_PLAYER),
+                                new DistanceEvaluator(CoreMemoryTypes.NEAREST_PLAYER, 16),
+                                not(new PassByTimeEvaluator(CoreMemoryTypes.LAST_BE_ATTACKED_TIME, 0, 60))
+                        ), 1, 1)
+                )
+                .sensors(new NearestPlayerSensor(40, 0, 20))
+                .controllers(new LookController(true, true))
+                .routeFinder(new SimpleFlatAStarRouteFinder(new WalkingPosEvaluator(), this))
+                .build();
+    }
+
+    public EntityShulker(IChunk chunk, CompoundTag nbt) {
+        super(chunk, nbt);
+    }
+
+    public boolean isPeeking() {
+        return getDataProperty(ActorDataTypes.PEEK_ID, 0) == 0;
+    }
+
+    public void setPeeking(int height) {
+        setDataProperty(ActorDataTypes.PEEK_ID, height);
+    }
+
+    @Override
+    public int getAdditionalArmor() {
+        return isPeeking() ? 20 : 30;
+    }
+
+    @Override
+    protected boolean onCollide(int currentTick, List<Entity> collidingEntities) {
+        collidingEntities.stream().filter(entity -> entity instanceof EntityProjectile).forEach(entity -> {
+            entity.setMotion(entity.getMotion().multiply(-1));
+        });
+        return super.onCollide(currentTick, collidingEntities);
+    }
+
+    @Override
+    public boolean onUpdate(int currentTick) {
+        Block block = getLevelBlock();
+        if(!block.isAir() || block.down().isAir()) teleport();
+        return super.onUpdate(currentTick);
+    }
+
+    @Override //Shulker doesn't take knockback
+    public void knockBack(Entity attacker, double damage, double x, double z, double base) {}
+
+    @Override //Shulker doesn't move
+    public void updateMovement() {}
+
+    @Override
+    public float getDefaultGravity() {
+        return 0;
+    }
+
+    @Override //Shulker cannot burn
+    public void setOnFire(int seconds) {}
+
+    @Override
+    public boolean attack(EntityDamageEvent source) {
+        if(getHealthCurrent() - source.getDamage() < getHealthMax()/2f) {
+            if(Utils.rand(0,4) == 0) {
+                teleport();
+                return true;
+            }
+        }
+        return super.attack(source);
+    }
+
+    @Override
+    protected void initEntity() {
+        super.initEntity();
+        if(getMemoryStorage().get(CoreMemoryTypes.VARIANT) == null) setVariant(16);
+        setDataProperty(ActorDataTypes.ATTACH_POS, getLevelBlock().getSide(BlockFace.UP).asBlockVector3().toNetwork());
+    }
+
+    @Override
+    public float getWidth() {
+        return 0.99f;
+    }
+
+    @Override
+    public float getHeight() {
+        return 0.99f;
+    }
+
+    @Override
+    public HealthComponent getComponentHealth() {
+        return HealthComponent.value(30);
+    }
+
+    @Override
+    protected @Nullable MovementComponent getComponentMovement() {
+        return MovementComponent.value(0.0f);
+    }
+
+    @Override
+    public String getOriginalName() {
+        return "Shulker";
+    }
+
+    @Override
+    public Set<String> typeFamily() {
+        return Set.of("shulker", "monster", "mob");
+    }
+
+    @Override
+    public boolean isPersistent() {
+        return true;
+    }
+
+    @Override
+    public Item[] getDrops(@NotNull Item weapon) {
+        int looting = weapon.getEnchantmentLevel(Enchantment.ID_LOOTING);
+
+        if (Utils.rand(0, 1) == 0) {
+            int amount = Utils.rand(0, 1 + looting);
+            if (amount > 0) {
+                return new Item[]{
+                        Item.get(Item.SHULKER_SHELL, 0, amount)
+                };
+            }
+        }
+
+        return Item.EMPTY_ARRAY;
+    }
+
+    public void teleport() {
+        Arrays.stream(getLevel().getCollisionBlocks(getBoundingBox().grow(7, 7, 7))).filter(block -> block.isFullBlock() && block.up().isAir()).findAny().ifPresent(
+                block -> {
+                    Location location = block.up().getLocation();
+                    getLevel().addLevelSoundEvent(this, SoundEvent.TELEPORT, -1, getIdentifier(), false, false);
+                    teleport(location, PlayerTeleportEvent.TeleportCause.SHULKER);
+                    getLevel().addLevelSoundEvent(location, SoundEvent.SPAWN, -1, getIdentifier(), false, false);
+                }
+        );
+    }
+
+    @Override
+    public boolean teleport(Location location, PlayerTeleportEvent.TeleportCause cause) {
+        boolean superValue = super.teleport(location, cause);
+        if(superValue) super.updateMovement();
+        return superValue;
+    }
+
+    @Override
+    public int[] getAllVariant() {
+        return new int[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+    }
+}

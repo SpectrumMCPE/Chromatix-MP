@@ -1,0 +1,14 @@
+package chromatix.level.particle;
+
+import chromatix.math.Vector3;
+import org.cloudburstmc.protocol.bedrock.data.ParticleType;
+
+/**
+ * @author xtypr
+ * @since 2015/11/21
+ */
+public class LavaParticle extends GenericParticle {
+    public LavaParticle(Vector3 pos) {
+        super(pos, ParticleType.LAVA);
+    }
+}

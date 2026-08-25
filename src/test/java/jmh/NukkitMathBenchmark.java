@@ -1,7 +1,7 @@
 package jmh;
 
-import org.powernukkitx.math.MathHelper;
-import org.powernukkitx.math.NukkitMath;
+import chromatix.math.MathHelper;
+import chromatix.math.NukkitMath;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;

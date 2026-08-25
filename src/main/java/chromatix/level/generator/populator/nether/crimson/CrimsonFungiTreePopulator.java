@@ -1,0 +1,60 @@
+package chromatix.level.generator.populator.nether.crimson;
+
+import chromatix.block.Block;
+import chromatix.level.Level;
+import chromatix.level.biome.BiomeID;
+import chromatix.level.format.IChunk;
+import chromatix.level.generator.ChunkGenerateContext;
+import chromatix.level.generator.object.BlockManager;
+import chromatix.level.generator.object.legacytree.LegacyCrimsonTree;
+import chromatix.level.generator.populator.Populator;
+import chromatix.math.NukkitMath;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class CrimsonFungiTreePopulator extends Populator {
+
+    public static final String NAME = "nether_crimson_fungi_tree";
+
+    @Override
+    public void apply(ChunkGenerateContext context) {
+        IChunk chunk = context.getChunk();
+        int chunkX = chunk.getX();
+        int chunkZ = chunk.getZ();
+        Level level = chunk.getLevel();
+        random.setSeed(level.getSeed() ^ Level.chunkHash(chunkX, chunkZ));
+        BlockManager object = new BlockManager(level);
+        int amount = random.nextInt(6) + 4;
+
+        for (int i = 0; i < amount; ++i) {
+            int x = NukkitMath.randomRange(random, chunkX << 4, (chunkX << 4) + 15);
+            int z = NukkitMath.randomRange(random, chunkZ << 4, (chunkZ << 4) + 15);
+            if(level.getBiomeId(x, 0, z) != BiomeID.CRIMSON_FOREST) continue;
+            ArrayList<Integer> ys = this.getHighestWorkableBlocks(object, x, z);
+            for (int y : ys) {
+                if (y <= 1) continue;
+                if (random.nextInt(4) == 1) continue;
+                new LegacyCrimsonTree().placeObject(object, x, y, z, random);
+            }
+        }
+        queueObject(chunk, object);
+    }
+
+    private ArrayList<Integer> getHighestWorkableBlocks(BlockManager level, int x, int z) {
+        int y;
+        ArrayList<Integer> blockYs = new ArrayList<>();
+        for (y = 128; y > 0; --y) {
+            String b = level.getBlockIdAt(x, y, z);
+            if ((Objects.equals(b, Block.CRIMSON_NYLIUM)) && level.getBlockAt(x, y + 1, z).canBeReplaced()) {
+                blockYs.add(y + 1);
+            }
+        }
+        return blockYs;
+    }
+
+    @Override
+    public String name() {
+        return NAME;
+    }
+}

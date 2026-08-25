@@ -1,0 +1,14 @@
+package chromatix.level.generator;
+
+import chromatix.level.generator.populator.Populator;
+
+public abstract class GenerateFeature extends Populator {
+
+    public abstract String name();
+
+    public String identifier() {
+        return name();
+    }
+
+    public abstract void apply(ChunkGenerateContext context);
+}

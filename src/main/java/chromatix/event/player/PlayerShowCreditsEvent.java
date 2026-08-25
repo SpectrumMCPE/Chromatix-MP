@@ -1,0 +1,20 @@
+package chromatix.event.player;
+
+import chromatix.Player;
+import chromatix.event.Cancellable;
+import chromatix.event.HandlerList;
+/**
+ * @author GoodLucky777
+ */
+public class PlayerShowCreditsEvent extends PlayerEvent implements Cancellable {
+
+    private static final HandlerList handlers = new HandlerList();
+
+    public static HandlerList getHandlers() {
+        return handlers;
+    }
+
+    public PlayerShowCreditsEvent(Player player) {
+        this.player = player;
+    }
+}

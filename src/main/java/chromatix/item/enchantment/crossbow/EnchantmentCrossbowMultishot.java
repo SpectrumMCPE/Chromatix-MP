@@ -1,0 +1,27 @@
+package chromatix.item.enchantment.crossbow;
+
+import chromatix.item.enchantment.Enchantment;
+
+
+public class EnchantmentCrossbowMultishot extends EnchantmentCrossbow {
+
+
+    public EnchantmentCrossbowMultishot() {
+        super(Enchantment.ID_CROSSBOW_MULTISHOT, "crossbowMultishot", Rarity.RARE);
+    }
+
+    @Override
+    public int getMinEnchantAbility(int level) {
+        return 20;
+    }
+
+    @Override
+    public int getMaxLevel() {
+        return 1;
+    }
+
+    @Override
+    public boolean checkCompatibility(Enchantment enchantment) {
+        return super.checkCompatibility(enchantment) && enchantment.id != ID_CROSSBOW_PIERCING;
+    }
+}

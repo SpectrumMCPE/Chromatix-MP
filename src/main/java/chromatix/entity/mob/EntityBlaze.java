@@ -1,0 +1,156 @@
+package chromatix.entity.mob;
+
+import chromatix.Player;
+import chromatix.entity.EntityFlyable;
+import chromatix.entity.ai.behavior.Behavior;
+import chromatix.entity.ai.behaviorgroup.BehaviorGroup;
+import chromatix.entity.ai.behaviorgroup.IBehaviorGroup;
+import chromatix.entity.ai.controller.LiftController;
+import chromatix.entity.ai.controller.LookController;
+import chromatix.entity.ai.controller.SpaceMoveController;
+import chromatix.entity.ai.evaluator.DistanceEvaluator;
+import chromatix.entity.ai.evaluator.EntityCheckEvaluator;
+import chromatix.entity.ai.evaluator.RandomSoundEvaluator;
+import chromatix.entity.ai.executor.BlazeShootExecutor;
+import chromatix.entity.ai.executor.MeleeAttackExecutor;
+import chromatix.entity.ai.executor.PlaySoundExecutor;
+import chromatix.entity.ai.executor.SpaceRandomRoamExecutor;
+import chromatix.entity.ai.memory.CoreMemoryTypes;
+import chromatix.entity.ai.route.finder.impl.SimpleSpaceAStarRouteFinder;
+import chromatix.entity.ai.route.posevaluator.FlyingPosEvaluator;
+import chromatix.entity.ai.sensor.NearestPlayerSensor;
+import chromatix.entity.components.HealthComponent;
+import chromatix.entity.components.MovementComponent;
+import chromatix.event.entity.EntityDamageEvent;
+import chromatix.item.Item;
+import chromatix.item.enchantment.Enchantment;
+import chromatix.level.Sound;
+import chromatix.level.format.IChunk;
+import chromatix.nbt.tag.CompoundTag;
+import chromatix.utils.Utils;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Set;
+
+/**
+ * @author PikyCZ, Buddelbubi
+ */
+public class EntityBlaze extends EntityMob implements EntityFlyable {
+
+    @Override
+    @NotNull public String getIdentifier() {
+        return BLAZE;
+    }
+
+    public EntityBlaze(IChunk chunk, CompoundTag nbt) {
+        super(chunk, nbt);
+    }
+
+    @Override
+    public IBehaviorGroup requireBehaviorGroup() {
+        return BehaviorGroup.builder(this)
+                .behaviors(
+                        new Behavior(new PlaySoundExecutor(Sound.MOB_BLAZE_BREATHE), new RandomSoundEvaluator(), 5, 1),
+                        new Behavior(new MeleeAttackExecutor(CoreMemoryTypes.NEAREST_PLAYER, 0.3f, 1, false, 30), all(
+                                new EntityCheckEvaluator(CoreMemoryTypes.NEAREST_PLAYER),
+                                new DistanceEvaluator(CoreMemoryTypes.NEAREST_PLAYER, 1)
+                        ), 4, 1),
+                        new Behavior(new BlazeShootExecutor(CoreMemoryTypes.ATTACK_TARGET, 0.3f, 15, true, 100, 40), new EntityCheckEvaluator(CoreMemoryTypes.ATTACK_TARGET), 3, 1),
+                        new Behavior(new BlazeShootExecutor(CoreMemoryTypes.NEAREST_PLAYER, 0.3f, 15, true, 100, 40), new EntityCheckEvaluator(CoreMemoryTypes.NEAREST_PLAYER), 2, 1),
+                        new Behavior(new SpaceRandomRoamExecutor(0.15f, 12, 100, 20, false, -1, true, 10), none(), 1, 1)
+                )
+                .sensors(new NearestPlayerSensor(40, 0, 20))
+                .controllers(new SpaceMoveController(), new LookController(true, true), new LiftController())
+                .routeFinder(new SimpleSpaceAStarRouteFinder(new FlyingPosEvaluator(), this))
+                .build();
+    }
+
+    @Override
+    protected void initEntity() {
+        this.diffHandDamage = new float[]{4f, 6f, 9f};
+        super.initEntity();
+    }
+
+    @Override
+    public boolean attack(EntityDamageEvent source) {
+        EntityDamageEvent.DamageCause cause = source.getCause();
+        if (cause == EntityDamageEvent.DamageCause.LAVA
+                || cause == EntityDamageEvent.DamageCause.HOT_FLOOR
+                || cause == EntityDamageEvent.DamageCause.FIRE
+                || cause == EntityDamageEvent.DamageCause.FIRE_TICK)
+            return false;
+        return super.attack(source);
+    }
+
+    @Override
+    public float getWidth() {
+        return 0.5f;
+    }
+
+    @Override
+    public float getHeight() {
+        return 1.8f;
+    }
+
+    @Override
+    public HealthComponent getComponentHealth() {
+        return HealthComponent.value(20);
+    }
+
+    @Override
+    protected @Nullable MovementComponent getComponentMovement() {
+        return MovementComponent.value(0.23f);
+    }
+
+    @Override
+    public String getOriginalName() {
+        return "Blaze";
+    }
+
+    @Override
+    public Set<String> typeFamily() {
+        return Set.of("blaze", "monster", "mob");
+    }
+
+    @Override
+    public boolean isPreventingSleep(Player player) {
+        return true;
+    }
+
+    @Override
+    public int getFrostbiteInjury() {
+        return 5;
+    }
+
+    @Override
+    public Item[] getDrops(@NotNull Item weapon) {
+        int looting = weapon.getEnchantmentLevel(Enchantment.ID_LOOTING);
+
+        float chance = 0.5f + (0.25f * looting);
+        chance = Math.min(chance, 1.0f);
+
+        if (Utils.rand(0f, 1f) < chance) {
+            int amount = Utils.rand(1, 1 + looting);
+            return new Item[]{Item.get(Item.BLAZE_ROD, 0, amount)};
+        }
+
+        return Item.EMPTY_ARRAY;
+    }
+
+    @Override
+    public Integer getExperienceDrops() {
+        return 10;
+    }
+
+    @Override
+    public boolean onUpdate(int currentTick) {
+        if(currentTick % 10 == 0) {
+            if(level.isRaining() && !this.isUnderBlock()) {
+                this.attack(new EntityDamageEvent(this, EntityDamageEvent.DamageCause.WEATHER, 1));
+            }
+        }
+        return super.onUpdate(currentTick);
+    }
+}

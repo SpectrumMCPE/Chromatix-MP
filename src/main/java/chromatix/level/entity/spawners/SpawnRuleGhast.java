@@ -1,0 +1,34 @@
+package chromatix.level.entity.spawners;
+
+import chromatix.block.Block;
+import chromatix.entity.Entity;
+import chromatix.level.entity.condition.ConditionBiomeFilter;
+import chromatix.level.entity.condition.ConditionDensityLimit;
+import chromatix.level.entity.condition.ConditionDifficultyFilter;
+import chromatix.level.entity.condition.ConditionInAir;
+import chromatix.level.entity.condition.ConditionPopulationControl;
+import chromatix.level.entity.condition.ConditionSpawnOnBlockFilter;
+import chromatix.tags.BiomeTags;
+
+public class SpawnRuleGhast extends SpawnRule {
+
+    public SpawnRuleGhast() {
+        super(Entity.GHAST, 40,
+                new ConditionInAir(),
+                new GhastCondition(),
+                new ConditionDifficultyFilter(),
+                new ConditionBiomeFilter(BiomeTags.SPAWN_GHAST),
+                new ConditionSpawnOnBlockFilter(Block.AIR),
+                new ConditionDensityLimit(Entity.GHAST, 2, 128),
+                new ConditionPopulationControl(ConditionPopulationControl.Category.MONSTER)
+        );
+    }
+
+    private static class GhastCondition extends ConditionInAir {
+        @Override
+        public boolean evaluate(Block block) {
+            return block.up(3).isAir();
+        }
+    }
+
+}

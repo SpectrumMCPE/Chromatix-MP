@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Bulk-rename a Java package throughout a source tree."""
 
-# Moves/renames folder structure (cn/nukkit/... -> org/powernukkitx/...) and updates
+# Moves/renames folder structure (cn/nukkit/... -> chromatix/...) and updates
 # package declarations, import statements, and any other textual references to the old
 # package inside all text files (.java, .kt, .xml, .properties, .gradle, .yml, etc.)
 #
 # Usage:
-#     python3 rename_package.py /path/to/project [--old cn.nukkit] [--new org.powernukkitx] [--dry-run]
+#     python3 rename_package.py /path/to/project [--old cn.nukkit] [--new chromatix] [--dry-run]
 #
 # By default it operates on the whole project directory recursively.
 # It skips common build/VCS directories (.git, build, target, out, .gradle, .idea).
@@ -102,7 +102,7 @@ def main():
     parser = argparse.ArgumentParser(description="Bulk rename a Java package.")
     parser.add_argument("project_root", help="Root directory of the project to process")
     parser.add_argument("--old", default="cn.nukkit", help="Old package name (dotted)")
-    parser.add_argument("--new", default="org.powernukkitx", help="New package name (dotted)")
+    parser.add_argument("--new", default="chromatix", help="New package name (dotted)")
     parser.add_argument("--dry-run", action="store_true", help="Show what would change without modifying anything")
     args = parser.parse_args()
 

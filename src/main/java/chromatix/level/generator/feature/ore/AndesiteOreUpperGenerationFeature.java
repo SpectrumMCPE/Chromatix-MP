@@ -1,0 +1,21 @@
+package chromatix.level.generator.feature.ore;
+
+import chromatix.block.BlockAndesite;
+import chromatix.block.BlockState;
+
+public class AndesiteOreUpperGenerationFeature extends GraniteOreUpperGenerationFeature {
+
+    private static final BlockState STATE = BlockAndesite.PROPERTIES.getDefaultState();
+
+    public static final String NAME = "minecraft:overworld_underground_andesite_upper_feature";
+
+    @Override
+    public BlockState getState(BlockState original) {
+        return STATE;
+    }
+
+    @Override
+    public String name() {
+        return NAME;
+    }
+}

@@ -24,7 +24,7 @@ plugins {
     id("com.gorylenko.gradle-git-properties") version "4.0.1"
 }
 
-group = "org.powernukkitx"
+group = "chromatix"
 version = providers.gradleProperty("buildVersion").orElse("nightly-SNAPSHOT").get()
 description = "powernukkitx"
 java.sourceCompatibility = JavaVersion.VERSION_21
@@ -252,7 +252,7 @@ tasks.named<ShadowJar>("shadowJar") {
 
     manifest {
         attributes(
-            "Main-Class" to "org.powernukkitx.JarStart",
+            "Main-Class" to "chromatix.JarStart",
             "Implementation-Version" to project.version,
             "Implementation-Title" to project.name,
             "Multi-Release" to "true"

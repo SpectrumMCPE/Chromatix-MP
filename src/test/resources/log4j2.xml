@@ -6,7 +6,7 @@
         </TerminalConsole>
     </Appenders>
     <Loggers>
-        <Logger name="org.powernukkitx" level="WARN" additivity="false">
+        <Logger name="chromatix" level="WARN" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="INFO">

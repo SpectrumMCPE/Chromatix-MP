@@ -1,0 +1,327 @@
+package chromatix.entity.passive;
+
+import chromatix.block.BlockID;
+import chromatix.Player;
+import chromatix.entity.Entity;
+import chromatix.entity.EntityID;
+import chromatix.entity.EntityVariant;
+import chromatix.entity.EntityWalkable;
+import chromatix.entity.ai.behavior.Behavior;
+import chromatix.entity.ai.behaviorgroup.BehaviorGroup;
+import chromatix.entity.ai.behaviorgroup.IBehaviorGroup;
+import chromatix.entity.ai.controller.FluctuateController;
+import chromatix.entity.ai.controller.HoppingController;
+import chromatix.entity.ai.controller.LookController;
+import chromatix.entity.ai.evaluator.EntityCheckEvaluator;
+import chromatix.entity.ai.evaluator.PassByTimeEvaluator;
+import chromatix.entity.ai.evaluator.ProbabilityEvaluator;
+import chromatix.entity.ai.executor.AnimalGrowExecutor;
+import chromatix.entity.ai.executor.BreedingExecutor;
+import chromatix.entity.ai.executor.FlatRandomRoamExecutor;
+import chromatix.entity.ai.executor.FleeFromTargetExecutor;
+import chromatix.entity.ai.executor.LookAtTargetExecutor;
+import chromatix.entity.ai.executor.LoveTimeoutExecutor;
+import chromatix.entity.ai.executor.TemptExecutor;
+import chromatix.entity.ai.memory.CoreMemoryTypes;
+import chromatix.entity.ai.route.finder.impl.SimpleFlatAStarRouteFinder;
+import chromatix.entity.ai.route.posevaluator.WalkingPosEvaluator;
+import chromatix.entity.ai.sensor.NearestPlayerSensor;
+import chromatix.entity.ai.sensor.NearestTargetEntitySensor;
+import chromatix.entity.components.AgeableComponent;
+import chromatix.entity.components.BreedableComponent;
+import chromatix.entity.components.HealthComponent;
+import chromatix.entity.components.MovementComponent;
+import chromatix.event.entity.EntityDamageByEntityEvent;
+import chromatix.item.Item;
+import chromatix.item.ItemID;
+import chromatix.item.enchantment.Enchantment;
+import chromatix.level.format.IChunk;
+import chromatix.nbt.tag.CompoundTag;
+import chromatix.registry.Registries;
+import chromatix.tags.BiomeTags;
+import chromatix.utils.Utils;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * @author BeYkeRYkt (Nukkit Project)
+ */
+public class EntityRabbit extends EntityAnimal implements EntityWalkable, EntityVariant {
+    public static final int COAT_BROWN = 0;
+    public static final int COAT_WHITE = 1;
+    public static final int COAT_BLACK = 2;
+    public static final int COAT_SPLOTCHED = 3;
+    public static final int COAT_DESERT = 4;
+    public static final int COAT_SALT = 5;
+
+    private static final int[] VARIANTS = {
+            COAT_BROWN,
+            COAT_WHITE,
+            COAT_BLACK,
+            COAT_SPLOTCHED,
+            COAT_DESERT,
+            COAT_SALT
+    };
+
+    @Override
+    @NotNull public String getIdentifier() {
+        return RABBIT;
+    }
+
+
+    public EntityRabbit(IChunk chunk, CompoundTag nbt) {
+        super(chunk, nbt);
+    }
+
+    @Override
+    public float getBabyScale() {
+        // baby rabbit is 0.268 across against the adult's 0.402
+        return 0.6667f;
+    }
+
+    @Override
+    public float getWidth() {
+        return 0.402f;
+    }
+
+    @Override
+    public float getHeight() {
+        return 0.402f;
+    }
+
+    @Override
+    public HealthComponent getComponentHealth() {
+        return HealthComponent.value(3);
+    }
+
+    @Override
+    protected @Nullable MovementComponent getComponentMovement() {
+        return MovementComponent.value(0.3f);
+    }
+
+    @Override
+    public String getOriginalName() {
+        return "Rabbit";
+    }
+
+    @Override
+    public Set<String> typeFamily() {
+        return Set.of("rabbit", "lightweight", "mob");
+    }
+
+    @Override
+    public @Nullable BreedableComponent getComponentBreedable() {
+        return new BreedableComponent(
+                null,
+                null,
+                null,
+                null,
+                Set.of(
+                    ItemID.GOLDEN_CARROT,
+                    ItemID.CARROT,
+                    BlockID.DANDELION
+                ),
+                List.of(
+                    new BreedableComponent.BreedsWith(EntityID.RABBIT, EntityID.RABBIT)
+                ),
+                null,
+                null,
+                null,
+                null,
+                null,
+                new BreedableComponent.MutationFactor(0.2f, null, null),
+                null,
+                null,
+                false,
+                null
+        );
+    }
+
+    @Override
+    public AgeableComponent getComponentAgeable() {
+        return new AgeableComponent(
+                null,
+                1200f,
+                List.of(
+                    new AgeableComponent.FeedItem(ItemID.GOLDEN_CARROT),
+                    new AgeableComponent.FeedItem(ItemID.CARROT),
+                    new AgeableComponent.FeedItem(BlockID.DANDELION)
+                ),
+                null,
+                null,
+                null
+        );
+    }
+
+    @Override
+    public Item[] getDrops(@NotNull Item weapon) {
+        int looting = weapon.getEnchantmentLevel(Enchantment.ID_LOOTING);
+        List<Item> drops = new ArrayList<>();
+
+        if (Utils.rand(0, 1) == 0) {
+            int amount = Utils.rand(0, 1 + looting);
+            if (amount > 0) {
+                drops.add(Item.get(Item.RABBIT_HIDE, 0, amount));
+            }
+        }
+
+        if (Utils.rand(0, 1) == 0) {
+            int amount = Utils.rand(0, 1 + looting);
+            if (amount > 0) {
+                drops.add(Item.get(
+                        this.isOnFire() ? Item.COOKED_RABBIT : Item.RABBIT,
+                        0,
+                        amount
+                ));
+            }
+        }
+
+        float footChance = 0.10f + (0.03f * looting);
+        if (Utils.rand(0f, 1f) < footChance) {
+            drops.add(Item.get(Item.RABBIT_FOOT));
+        }
+
+        return drops.toArray(Item.EMPTY_ARRAY);
+    }
+
+    @Override
+    protected void initEntity() {
+        super.initEntity();
+        if (!hasVariant()) {
+            setVariant(getBiomeVariant());
+        }
+        if (this.isBaby()) {
+            this.setScale(0.4f);
+        } else this.setScale(0.60f);
+    }
+
+    @Override
+    public int[] getAllVariant() {
+        return VARIANTS;
+    }
+
+    private int getBiomeVariant() {
+        var biomeTags = Registries.BIOME.getTags(getLevel().getBiomeId((int) x, (int) y, (int) z));
+        if (biomeTags.contains(BiomeTags.DESERT)) {
+            return COAT_DESERT;
+        }
+        if (biomeTags.contains(BiomeTags.FROZEN) || biomeTags.contains(BiomeTags.ICE) || biomeTags.contains(BiomeTags.SNOWY_SLOPES)) {
+            return Utils.rand(1, 100) <= 80 ? COAT_WHITE : COAT_SPLOTCHED;
+        }
+
+        int roll = Utils.rand(1, 100);
+        if (roll <= 50) return COAT_BROWN;
+        if (roll <= 90) return COAT_BLACK;
+        return COAT_SALT;
+    }
+
+    private boolean shouldAvoid(Entity entity) {
+        if (entity instanceof Player player && !player.isSurvival()) {
+            return false;
+        }
+        return entity instanceof Player || entity.isFamily("wolf") || entity.isFamily("monster");
+    }
+
+    private static final Set<String> TEMPT_ITEMS = Set.of(
+        ItemID.GOLDEN_CARROT,
+        ItemID.CARROT,
+        BlockID.DANDELION
+    );
+
+    @Override
+    public IBehaviorGroup requireBehaviorGroup() {
+        return BehaviorGroup.builder(this)
+                .coreBehaviors(
+                    new Behavior(
+                        new LoveTimeoutExecutor(20 * 30),
+                            e -> e.getMemoryStorage().get(CoreMemoryTypes.IS_IN_LOVE),
+                        2, 1
+                    ),
+                    new Behavior(
+                        new AnimalGrowExecutor(),
+                            all(
+                                e -> e.isAgeable(),
+                                e -> e.isBaby(),
+                                e -> !e.isGrowthPaused(),
+                                e -> e.getTicksGrowLeft() > 0
+                            ),
+                        1, 1, 1200
+                    )
+                )
+                .behaviors(
+                    new Behavior(
+                        entity -> {
+                            if (entity.getMemoryStorage().get(CoreMemoryTypes.BE_ATTACKED_EVENT) instanceof EntityDamageByEntityEvent event) {
+                                entity.getMemoryStorage().put(CoreMemoryTypes.NEAREST_SHARED_ENTITY, event.getDamager());
+                            }
+                            return false;
+                        },
+                        new PassByTimeEvaluator(CoreMemoryTypes.LAST_BE_ATTACKED_TIME, 0, 100),
+                        8, 1
+                    ),
+                    new Behavior(
+                        new FleeFromTargetExecutor(CoreMemoryTypes.NEAREST_SHARED_ENTITY, 0.66f, true, 8),
+                        all(
+                            new EntityCheckEvaluator(CoreMemoryTypes.NEAREST_SHARED_ENTITY),
+                            new PassByTimeEvaluator(CoreMemoryTypes.LAST_BE_ATTACKED_TIME, 0, 100)
+                        ),
+                        7, 1
+                    ),
+                    new Behavior(
+                        new FleeFromTargetExecutor(CoreMemoryTypes.NEAREST_SHARED_ENTITY, 1f, true, 8),
+                        all(
+                            new EntityCheckEvaluator(CoreMemoryTypes.NEAREST_SHARED_ENTITY),
+                            e -> shouldAvoid(e.getMemoryStorage().get(CoreMemoryTypes.NEAREST_SHARED_ENTITY))
+                        ),
+                        4, 1
+                    ),
+                    new Behavior(
+                        new FlatRandomRoamExecutor(0.4f, 12, 10, true, 100, true, 10),
+                            new PassByTimeEvaluator(CoreMemoryTypes.LAST_BE_ATTACKED_TIME, 100, 100),
+                        3, 1
+                    ),
+                    new Behavior(
+                        new BreedingExecutor(16, 200, 0.25f),
+                            all(
+                                e -> !e.isBaby(),
+                                e -> e.getMemoryStorage().get(CoreMemoryTypes.IS_IN_LOVE)
+                            ),
+                        6, 1
+                    ),
+                    new Behavior(
+                        new TemptExecutor(1.0f, TEMPT_ITEMS),
+                            all(
+                                e -> !e.getMemoryStorage().get(CoreMemoryTypes.IS_IN_LOVE),
+                                e -> TemptExecutor.hasTemptingPlayer(e, false, 10, TEMPT_ITEMS)
+                            ),
+                        5, 1
+                    ),
+                    new Behavior(
+                        new LookAtTargetExecutor(CoreMemoryTypes.NEAREST_PLAYER, 100),
+                            new ProbabilityEvaluator(4, 10),
+                        1, 1, 100
+                    ),
+                    new Behavior(
+                        new FlatRandomRoamExecutor(0.2f, 12, 100, false, -1, true, 10),
+                            (entity -> true),
+                        1, 1
+                    )
+                )
+                .sensors(
+                    new NearestPlayerSensor(8, 0, 20),
+                    new NearestTargetEntitySensor<>(0, 8, 20, List.of(CoreMemoryTypes.NEAREST_SHARED_ENTITY), this::shouldAvoid)
+                )
+                .controllers(
+                    new HoppingController(15),
+                    new LookController(() -> !isMoving(), this::isMoving),
+                    new FluctuateController()
+                )
+                .routeFinder(new SimpleFlatAStarRouteFinder(new WalkingPosEvaluator(), this))
+                .build();
+    }
+
+}
