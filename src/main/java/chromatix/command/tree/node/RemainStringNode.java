@@ -6,7 +6,7 @@ import java.util.List;
 import chromatix.command.CommandSender;
 
 /**
- * Parses all remaining command arguments as a single {@code String} value for PowerNukkitX command trees.
+ * Parses all remaining command arguments as a single {@code String} value for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#JSON JSON}
  * if no custom {@link IParamNode} is specified. It joins all remaining arguments into a single string value.
@@ -29,10 +29,10 @@ import chromatix.command.CommandSender;
  * // Parses: '{"key":"value"}' as a String
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.data.CommandParamType#JSON
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * <p>
  * Parse all remaining parameters and concatenate them into a {@code String} value
  * <p>

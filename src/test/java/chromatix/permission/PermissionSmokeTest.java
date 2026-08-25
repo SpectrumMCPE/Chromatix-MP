@@ -106,7 +106,7 @@ class PermissionSmokeTest {
         safe(player::getEffectivePermissions);
         safe(() -> player.isOp());
 
-        Plugin plugin = Server.getInstance().getPluginManager().getPlugin("PowerNukkitX");
+        Plugin plugin = Server.getInstance().getPluginManager().getPlugin("Chromatix");
         if (plugin == null) {
             plugin = InternalPlugin.INSTANCE;
         }

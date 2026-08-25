@@ -44,7 +44,7 @@ import static chromatix.block.BlockID.WHEAT;
 import static chromatix.block.BlockID.YELLOW_STAINED_GLASS_PANE;
 
 /**
- * Trail Ruins for PowerNukkitX
+ * Trail Ruins for Chromatix
  * @author Buddelbubi
  * @since 2026/03/31
  */

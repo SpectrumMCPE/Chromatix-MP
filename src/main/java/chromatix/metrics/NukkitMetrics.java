@@ -1,7 +1,7 @@
 package chromatix.metrics;
 
 import chromatix.Player;
-import chromatix.PowerNukkitX;
+import chromatix.Chromatix;
 import chromatix.Server;
 import chromatix.network.process.auth.ClientChainData;
 import lombok.extern.slf4j.Slf4j;
@@ -98,7 +98,7 @@ public class NukkitMetrics {
     private static NukkitMetrics createMetrics(@NotNull final Server server) {
         NukkitMetrics nukkitMetrics = new NukkitMetrics();
 
-        final Metrics metrics = new Metrics("PowerNukkitX", nukkitMetrics.serverUUID, nukkitMetrics.logFailedRequests);
+        final Metrics metrics = new Metrics("Chromatix", nukkitMetrics.serverUUID, nukkitMetrics.logFailedRequests);
         nukkitMetrics.metrics = metrics;
 
         metrics.addCustomChart(new Metrics.SingleLineChart("players", () -> server.getOnlinePlayers().size()));
@@ -159,7 +159,7 @@ public class NukkitMetrics {
 
     private String buildServerUUID() {
         List<String> identifiers = new ArrayList<>();
-        identifiers.add(PowerNukkitX.DATA_PATH);
+        identifiers.add(Chromatix.DATA_PATH);
         try {
             HardwareAbstractionLayer hardware = new SystemInfo().getHardware();
             ComputerSystem computerSystem = hardware.getComputerSystem();

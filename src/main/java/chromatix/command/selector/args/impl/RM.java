@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'rm' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'rm' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'rm' argument is used to filter entities by their minimum distance from a reference location, selecting only those
  * whose distance is greater than the specified value. This is commonly used in selectors such as @e[rm=10] to select entities
@@ -24,7 +24,7 @@ import java.util.function.Predicate;
  *   <li>Validates that only one argument is provided and that it is not negated.</li>
  *   <li>Parses the argument as a double and applies the filter to all entities.</li>
  *   <li>Returns a predicate that checks if an entity's distance squared to the base position is greater than the square of the specified minimum radius.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link ISelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link ISelectorArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -45,14 +45,14 @@ import java.util.function.Predicate;
  *   <li>Argument must be a valid double value.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see ISelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
  * @see chromatix.command.CommandSender
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class RM implements ISelectorArgument {
     @Override

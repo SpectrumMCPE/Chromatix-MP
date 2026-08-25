@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author MagicDroidX (code) @ Nukkit Project
  * @author Fenxie Dama (javadoc) @ Nukkit Project
- * @author smartcmd (code) @ PowerNukkitX Project
+ * @author smartcmd (code) @ Chromatix Project
  * @see chromatix.command.CommandExecutor#onCommand
  * @since Nukkit 1.0 | Nukkit API 1.0.0
  */

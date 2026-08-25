@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Buddelbubi (PowerNukkitX)
+ * @author Buddelbubi (Chromatix)
  * @since 2026/05/11
  */
 public class ObjectFancyOakTree extends TreeGenerator {

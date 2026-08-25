@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * Common Density functions for PowerNukkitX
+ * Common Density functions for Chromatix
  * @author Buddelbubi
  * @since 2026/04/02
  */

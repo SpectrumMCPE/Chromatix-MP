@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'dy' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'dy' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'dy' argument is used to define a range along the Y-axis for entity selection. It filters entities whose Y coordinate
  * falls within the range starting from the base position's Y and extending by the specified dy value. This is commonly used
@@ -24,7 +24,7 @@ import java.util.function.Predicate;
  *   <li>Calculates the range using the base position's Y and the dy value.</li>
  *   <li>Returns a predicate that checks if an entity's Y coordinate is within the specified range.</li>
  *   <li>Throws {@link chromatix.command.exceptions.SelectorSyntaxException} for invalid arguments.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link ScopeArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link ScopeArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -44,14 +44,14 @@ import java.util.function.Predicate;
  *   <li>Argument must not be negated (throws if starts with '!').</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see ScopeArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
  * @see chromatix.command.CommandSender
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class DY extends ScopeArgument {
     @Override

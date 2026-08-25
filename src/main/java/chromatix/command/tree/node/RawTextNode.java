@@ -6,7 +6,7 @@ import org.cloudburstmc.protocol.bedrock.data.command.CommandOutputMessage;
 
 
 /**
- * Parses a command parameter as a {@link RawText} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@link RawText} value for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#RAWTEXT RAWTEXT}
  * if no custom {@link IParamNode} is specified. It attempts to parse the argument as RawText, handling JSON syntax errors
@@ -30,10 +30,10 @@ import org.cloudburstmc.protocol.bedrock.data.command.CommandOutputMessage;
  * // Parses: '{"rawtext":[{"text":"Hello"}]}' as RawText
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see RawText
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class RawTextNode extends ParamNode<RawText> {
 

@@ -8,7 +8,7 @@ import org.cloudburstmc.protocol.bedrock.data.command.CommandOutputMessage;
 import org.cloudburstmc.protocol.bedrock.data.command.CommandParamType;
 
 /**
- * Represents an abstract command parameter node for PowerNukkitX command trees.
+ * Represents an abstract command parameter node for Chromatix command trees.
  * <p>
  * This interface defines the contract for parsing, validating, and managing command parameter nodes of type T.
  * It provides methods for filling the node with a value, retrieving the result, resetting state, error handling,
@@ -34,11 +34,11 @@ import org.cloudburstmc.protocol.bedrock.data.command.CommandParamType;
  * public class MyNode implements IParamNode<MyType> { ... }
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see ParamList
  * @see CommandEnum
  * @see CommandParamType
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public interface IParamNode<T> {
 

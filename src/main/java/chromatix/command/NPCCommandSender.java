@@ -46,9 +46,9 @@ import java.util.Map;
  * <p>
  * The NPC is not a player, so {@code isPlayer()} returns false. Operator status is always true and cannot be changed.
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandSender
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class NPCCommandSender implements CommandSender {
     /**

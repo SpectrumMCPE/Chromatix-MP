@@ -5,7 +5,7 @@ import chromatix.command.tree.ParamList;
 import org.cloudburstmc.protocol.bedrock.data.command.CommandParamType;
 
 /**
- * Abstract base class for generic command parameter nodes in PowerNukkitX command trees.
+ * Abstract base class for generic command parameter nodes in Chromatix command trees.
  * <p>
  * Plugins should extend this class to implement custom command parameter nodes. Provides default implementations for value management,
  * result checking, reset, and initialization with command metadata.
@@ -28,10 +28,10 @@ import org.cloudburstmc.protocol.bedrock.data.command.CommandParamType;
  * public class MyCustomNode extends ParamNode<MyType> { ... }
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see IParamNode
  * @see ParamList
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public abstract class ParamNode<T> implements IParamNode<T> {
     protected T value = null;

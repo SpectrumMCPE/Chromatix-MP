@@ -3,7 +3,7 @@ package chromatix.command.tree.node;
 import java.util.regex.Pattern;
 
 /**
- * Parses and validates integer position arguments as {@link chromatix.level.Position} values for PowerNukkitX command trees.
+ * Parses and validates integer position arguments as {@link chromatix.level.Position} values for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#BLOCK_POSITION BLOCK_POSITION}
  * if no custom {@link IParamNode} is specified. It uses a regex pattern to validate and parse integer coordinates,
@@ -27,11 +27,11 @@ import java.util.regex.Pattern;
  * // Parses: "~1", "^2", "100"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.level.Position
  * @see chromatix.command.data.CommandParamType#BLOCK_POSITION
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class IntPositionNode extends PositionNode {
     private static final Pattern INT_POS_PATTERN = Pattern.compile("[~^]?([-+]?\\d+)|[~^]");

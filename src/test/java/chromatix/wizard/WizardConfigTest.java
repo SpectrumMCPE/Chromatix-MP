@@ -19,7 +19,7 @@ public class WizardConfigTest {
         Assertions.assertEquals("eng", config.getLanguage());
         Assertions.assertFalse(config.isLicenseAccepted());
         Assertions.assertEquals(19132, config.getPort());
-        Assertions.assertEquals("PowerNukkitX Server", config.getMotd());
+        Assertions.assertEquals("Chromatix Server", config.getMotd());
         Assertions.assertEquals(0, config.getGamemode());
         Assertions.assertEquals(20, config.getMaxPlayers());
         Assertions.assertFalse(config.isWhitelistEnabled());

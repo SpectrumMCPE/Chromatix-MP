@@ -71,7 +71,7 @@ import java.util.Set;
 
 /**
  * @author BeYkeRYkt (Nukkit Project)
- * @author Cool_Loong (PowerNukkitX Project)
+ * @author Cool_Loong (Chromatix Project)
  * TODO: Wild wolves will not be refreshed.
  */
 public class EntityWolf extends EntityAnimal implements EntityWalkable, EntityCanAttack, EntityCanSit, EntityColor, EntityVariant, InventoryHolder {

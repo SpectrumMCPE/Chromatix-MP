@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for specifying multiple parameter sets for a command handler method in PowerNukkitX.
+ * Annotation for specifying multiple parameter sets for a command handler method in Chromatix.
  * <p>
  * This annotation is used to declare one or more {@link Parameters} sets for a command method, enabling advanced
  * command argument parsing, tab completion, and help generation. Each {@link Parameters} element describes a possible
@@ -37,7 +37,7 @@ import java.lang.annotation.Target;
  * </pre>
  *
  * @author nilsbrychzy
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

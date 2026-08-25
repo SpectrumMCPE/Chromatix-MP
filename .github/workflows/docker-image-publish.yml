@@ -89,8 +89,8 @@ jobs:
           push: true
           file: ./docker/Dockerfile
           tags: |
-            powernukkitx/server:${{ steps.tag-name.outputs.TAG_NAME }}
-            ghcr.io/powernukkitx/server:${{ steps.tag-name.outputs.TAG_NAME }}
+            chromatix/server:${{ steps.tag-name.outputs.TAG_NAME }}
+            ghcr.io/chromatix/server:${{ steps.tag-name.outputs.TAG_NAME }}
 
       - name: Build image for major tag
         if: steps.channel.outputs.CHANNEL == 'stable'
@@ -100,8 +100,8 @@ jobs:
           push: true
           file: ./docker/Dockerfile
           tags: |
-            powernukkitx/server:${{ steps.version.outputs.MAJOR }}
-            ghcr.io/powernukkitx/server:${{ steps.version.outputs.MAJOR }}
+            chromatix/server:${{ steps.version.outputs.MAJOR }}
+            ghcr.io/chromatix/server:${{ steps.version.outputs.MAJOR }}
 
       - name: Build image for minor tag
         if: steps.channel.outputs.CHANNEL == 'stable'
@@ -111,8 +111,8 @@ jobs:
           push: true
           file: ./docker/Dockerfile
           tags: |
-            powernukkitx/server:${{ steps.version.outputs.MINOR }}
-            ghcr.io/powernukkitx/server:${{ steps.version.outputs.MINOR }}
+            chromatix/server:${{ steps.version.outputs.MINOR }}
+            ghcr.io/chromatix/server:${{ steps.version.outputs.MINOR }}
 
       - name: Build image for latest tag
         if: steps.channel.outputs.CHANNEL == 'stable'
@@ -122,5 +122,5 @@ jobs:
           push: true
           file: ./docker/Dockerfile
           tags: |
-            powernukkitx/server:latest
-            ghcr.io/powernukkitx/server:latest
+            chromatix/server:latest
+            ghcr.io/chromatix/server:latest

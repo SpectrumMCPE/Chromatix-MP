@@ -10,7 +10,7 @@ import chromatix.level.Location;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'z' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'z' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'z' argument is used to specify the Z coordinate reference for entity selection. It allows selectors to define
  * the base Z position for range-based arguments (such as dz) and for filtering entities within a specific area.
@@ -23,7 +23,7 @@ import java.util.function.Predicate;
  *   <li>Parses the argument as an absolute or relative double value (e.g., 200, ~5, ~).</li>
  *   <li>Updates the base position's Z coordinate for use by other arguments (e.g., dz).</li>
  *   <li>Does not return a predicate; only modifies the reference location.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link CoordinateArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link CoordinateArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -45,14 +45,14 @@ import java.util.function.Predicate;
  *   <li>Argument must be a valid double value (absolute or relative).</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CoordinateArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
  * @see chromatix.command.CommandSender
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class Z extends CoordinateArgument {
     @Override

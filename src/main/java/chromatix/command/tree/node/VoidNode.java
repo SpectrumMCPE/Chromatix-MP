@@ -3,13 +3,13 @@ package chromatix.command.tree.node;
 import chromatix.command.tree.ParamList;
 
 /**
- * Represents a placeholder parameter node for PowerNukkitX command trees.
+ * Represents a placeholder parameter node for Chromatix command trees.
  * <p>
  * This node is used as a placeholder for parameters that do not require a value. It always returns null and is always considered optional and filled.
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class VoidNode implements IParamNode<Void> {
     @Override

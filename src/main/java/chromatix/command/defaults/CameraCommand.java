@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author daoge_cmd (PowerNukkitX Project)
+ * @author daoge_cmd (Chromatix Project)
  * @since 2023/6/11
  */
 

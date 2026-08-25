@@ -56,10 +56,10 @@ import static chromatix.utils.Utils.dynamic;
  * @since Nukkit 1.0 | Nukkit API 1.0.0
  */
 @Slf4j
-public class PowerNukkitX {
+public class Chromatix {
     public final static Properties GIT_INFO = getGitInfo();
     public final static String VERSION = getVersion();
-    public final static String CODENAME = dynamic("PowerNukkitX");
+    public final static String CODENAME = dynamic("Chromatix");
     public final static String GIT_COMMIT = getGitCommit();
     public final static String API_VERSION = dynamic("3.0.3");
     public final static String PATH = System.getProperty("user.dir") + "/";
@@ -80,7 +80,7 @@ public class PowerNukkitX {
         ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.DISABLED);
 
         if (!acquireSingleInstanceLock()) {
-            log.error("Another PowerNukkitX server is already running in this directory. Only one instance per data directory is allowed.");
+            log.error("Another Chromatix server is already running in this directory. Only one instance per data directory is allowed.");
             return;
         }
 
@@ -158,7 +158,7 @@ public class PowerNukkitX {
         if (verbosity != null) {
             try {
                 Level level = Level.valueOf(verbosity);
-                PowerNukkitX.setLogLevel(level);
+                Chromatix.setLogLevel(level);
             } catch (Exception e) {
                 // ignore
             }
@@ -231,7 +231,7 @@ public class PowerNukkitX {
 
         try {
             if (TITLE) {
-                System.out.print((char) 0x1b + "]0;PowerNukkitX is starting up..." + (char) 0x07);
+                System.out.print((char) 0x1b + "]0;Chromatix is starting up..." + (char) 0x07);
             }
             new Server(PATH, DATA_PATH, PLUGIN_PATH, language, wizardConfig);
         } catch (Throwable t) {
@@ -271,7 +271,7 @@ public class PowerNukkitX {
                 instanceLockChannel = null;
                 return false;
             }
-            Runtime.getRuntime().addShutdownHook(new Thread(PowerNukkitX::releaseSingleInstanceLock));
+            Runtime.getRuntime().addShutdownHook(new Thread(Chromatix::releaseSingleInstanceLock));
             return true;
         } catch (OverlappingFileLockException e) {
             return false;
@@ -302,7 +302,7 @@ public class PowerNukkitX {
 
     private static Properties getGitInfo() {
         try {
-            InputStream gitFileStream = PowerNukkitX.class.getModule().getResourceAsStream("git.properties");
+            InputStream gitFileStream = Chromatix.class.getModule().getResourceAsStream("git.properties");
             if (gitFileStream == null) {
                 return null;
             }

@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declares the metadata of a PowerNukkitX plugin.
+ * Declares the metadata of a Chromatix plugin.
  * <p>
  * Place this on the single main plugin class (the one that extends
  * {@link chromatix.plugin.PluginBase}). At compile time the PNX annotation
@@ -42,7 +42,7 @@ public @interface PluginMeta {
     String version();
 
     /**
-     * The compatible PowerNukkitX API versions. Required, at least one.
+     * The compatible Chromatix API versions. Required, at least one.
      */
     String[] api();
 

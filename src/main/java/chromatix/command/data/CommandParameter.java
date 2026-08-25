@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Represents a parameter definition for a command in PowerNukkitX.
+ * Represents a parameter definition for a command in Chromatix.
  * <p>
  * This class is used to describe the properties, type, and options for a single command argument. It supports
  * both primitive types and enum-based parameters, optional arguments, postfixes, advanced parsing nodes, and
@@ -44,7 +44,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * CommandParameter enumParam = CommandParameter.newEnum("mode", new String[] {"easy", "hard"});
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandParamType
  * @see CommandEnum
  * @see CommandParamOption

@@ -1,7 +1,7 @@
 package chromatix.command.data;
 
 /**
- * Represents the input parameters for a command in PowerNukkitX.
+ * Represents the input parameters for a command in Chromatix.
  * <p>
  * This class is used to define the set of parameters that a command accepts. It is typically used in command
  * registration and metadata to specify the expected arguments for a command. The {@link #parameters} field holds
@@ -29,7 +29,7 @@ package chromatix.command.data;
  * };
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandParameter
  * @see CommandOverload
  * @see NukkitCommandData

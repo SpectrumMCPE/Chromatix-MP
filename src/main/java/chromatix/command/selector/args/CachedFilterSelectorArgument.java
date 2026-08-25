@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 /**
- * Abstract base class for selector arguments that support caching of filter functions in PowerNukkitX.
+ * Abstract base class for selector arguments that support caching of filter functions in Chromatix.
  * <p>
  * This class is designed for selector arguments that operate in filter mode (i.e., process the entity list as a whole)
  * and whose filter results are not time-sensitive, allowing reuse for the same argument set. It provides a built-in
@@ -51,11 +51,11 @@ import java.util.function.Function;
  *
  * <b>Thread Safety:</b> The cache is thread-safe for concurrent access.
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see ISelectorArgument
  * @see com.github.benmanes.caffeine.cache.Cache
  * @see Function
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 
 

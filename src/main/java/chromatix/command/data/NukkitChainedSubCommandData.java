@@ -32,8 +32,8 @@ import java.util.List;
  * data.getValues().add(new ChainedSubCommandData.Value("arg1", "arg2"));
  * </pre>
  *
- * @author PowerNukkitX Project Team
- * @since PowerNukkitX 2.0.0
+ * @author Chromatix Project Team
+ * @since Chromatix 2.0.0
  */
 @Data
 public class NukkitChainedSubCommandData {
@@ -64,8 +64,8 @@ public class NukkitChainedSubCommandData {
      *
      * @param first  The first value in the pair (e.g., argument name or value).
      * @param second The second value in the pair (e.g., argument name or value).
-     * @author PowerNukkitX Project Team
-     * @since PowerNukkitX 2.0.0
+     * @author Chromatix Project Team
+     * @since Chromatix 2.0.0
      */
     public record Value(String first, String second) {
     }

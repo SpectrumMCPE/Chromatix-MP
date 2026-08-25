@@ -1,5 +1,5 @@
 /**
- * Provides the core classes and interfaces for command handling in PowerNukkitX.
+ * Provides the core classes and interfaces for command handling in Chromatix.
  * <p>
  * This package contains abstractions and implementations for command registration, execution, permission management,
  * command senders (players, console, entities, NPCs), command mapping, aliases, and annotation-based command systems.
@@ -19,7 +19,7 @@
  * The package supports advanced features such as multi-command aliases, argument formatting, permission attachments,
  * and integration with plugin systems. It is designed for extensibility and robust command management in Minecraft server environments.
  *
- * @author PowerNukkitX Project Team
- * @since PowerNukkitX 2.0.0
+ * @author Chromatix Project Team
+ * @since Chromatix 2.0.0
  */
 package chromatix.command;

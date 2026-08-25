@@ -11,7 +11,7 @@ import java.util.StringJoiner;
 import java.util.regex.Matcher;
 
 /**
- * Parses all remaining command arguments as a single {@code String} value for PowerNukkitX command trees, supporting entity selector replacement.
+ * Parses all remaining command arguments as a single {@code String} value for Chromatix command trees, supporting entity selector replacement.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#MESSAGE MESSAGE}
  * if no custom {@link IParamNode} is specified. It joins all remaining arguments, replaces valid entity selectors with player names,
@@ -36,11 +36,11 @@ import java.util.regex.Matcher;
  * // Parses: say @a Hello -> "Steve, Alex Hello"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.data.CommandParamType#MESSAGE
  * @see EntitySelectorAPI
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class MessageStringNode extends ParamNode<String> {
 

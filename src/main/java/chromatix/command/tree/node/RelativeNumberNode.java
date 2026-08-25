@@ -1,7 +1,7 @@
 package chromatix.command.tree.node;
 
 /**
- * Abstract base class for relative number parameter nodes in PowerNukkitX command trees.
+ * Abstract base class for relative number parameter nodes in Chromatix command trees.
  * <p>
  * Provides a contract for parsing and retrieving relative number values (e.g., ~1, ~2.5) for numeric types.
  * Subclasses must implement the logic for retrieving the value relative to a base value.
@@ -25,7 +25,7 @@ package chromatix.command.tree.node;
  *
  * @author daoge_cmd
  * @see ParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public abstract class RelativeNumberNode<T extends Number> extends ParamNode<T> {
     @Override

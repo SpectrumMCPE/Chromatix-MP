@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Configuration holder for PowerNukkitX setup wizard settings
+ * Configuration holder for Chromatix setup wizard settings
  *
  * @author AzaleeX
  * @author xRookieFight
@@ -24,7 +24,7 @@ public class WizardConfig {
 
     private int port = 19132;
 
-    private String motd = "PowerNukkitX Server";
+    private String motd = "Chromatix Server";
 
     private int gamemode = 0;
 

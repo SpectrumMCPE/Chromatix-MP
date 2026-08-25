@@ -25,7 +25,7 @@ import chromatix.utils.random.RandomSourceProvider;
 import chromatix.utils.random.Xoroshiro128;
 
 /**
- * Bastion Remnant Jigsaw Structure for PowerNukkitX.
+ * Bastion Remnant Jigsaw Structure for Chromatix.
  */
 public class BastionStructure extends JigsawStructure {
 

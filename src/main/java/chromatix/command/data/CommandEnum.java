@@ -24,7 +24,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 /**
- * Represents an enumeration of possible values for command arguments in PowerNukkitX.
+ * Represents an enumeration of possible values for command arguments in Chromatix.
  * <p>
  * This class is used to define a set of valid options for a command parameter, supporting both static and dynamic value lists.
  * CommandEnum can be used for auto-completion, validation, and client-side display of command options.

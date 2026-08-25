@@ -4,7 +4,7 @@ import chromatix.Server;
 import chromatix.command.exceptions.SelectorSyntaxException;
 
 /**
- * Utility class providing static methods for parsing and validating target selector arguments in PowerNukkitX.
+ * Utility class providing static methods for parsing and validating target selector arguments in Chromatix.
  * <p>
  * This class contains helper functions commonly used in the parsing and validation of Minecraft selectors (e.g., @p, @a, @e)
  * and their arguments. It supports offset parsing for coordinates, inversion checks, argument count validation,
@@ -40,8 +40,8 @@ import chromatix.command.exceptions.SelectorSyntaxException;
  * int gamemode = ParseUtils.parseGameMode("creative"); // 1
  * </pre>
  *
- * @author PowerNukkitX Project Team
- * @since PowerNukkitX 2.0.0
+ * @author Chromatix Project Team
+ * @since Chromatix 2.0.0
  */
 
 

@@ -8,7 +8,7 @@ import chromatix.item.ItemBlock;
 import chromatix.item.customitem.CustomItem;
 
 /**
- * Parses a command parameter as an {@link Item} value for PowerNukkitX command trees.
+ * Parses a command parameter as an {@link Item} value for Chromatix command trees.
  * <p>
  * This node is used for all command enums of type {@link chromatix.command.data.CommandEnum#ENUM_ITEM ENUM_ITEM}
  * if no custom {@link IParamNode} is specified. It resolves item names (with or without namespace), rejects hidden custom items,
@@ -32,11 +32,11 @@ import chromatix.item.customitem.CustomItem;
  * // Parses: "diamond_sword", "minecraft:apple"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see Item
  * @see chromatix.command.data.CommandEnum#ENUM_ITEM
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class ItemNode extends ParamNode<Item> {
     @Override

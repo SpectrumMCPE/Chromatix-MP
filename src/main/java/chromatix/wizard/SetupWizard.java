@@ -19,7 +19,7 @@ import java.util.*;
 import java.util.function.Consumer;
 
 /**
- * Interactive setup wizard for PowerNukkitX using JLine for better user experience.
+ * Interactive setup wizard for Chromatix using JLine for better user experience.
  * Provides language selection and configuration options with navigation and auto-completion.
  * Implements AutoCloseable for proper resource management.
  *
@@ -164,7 +164,7 @@ public class SetupWizard implements AutoCloseable {
     private String selectLanguage(String predefinedLanguage) {
         terminal.writer().println();
         terminal.writer().println(borderLine());
-        terminal.writer().println(centerText("PowerNukkitX Setup Wizard - Language Selection", 59));
+        terminal.writer().println(centerText("Chromatix Setup Wizard - Language Selection", 59));
         terminal.writer().println(borderLine());
         terminal.writer().println();
         terminal.writer().println("Welcome! Please choose a language first!");
@@ -247,7 +247,7 @@ public class SetupWizard implements AutoCloseable {
         terminal.writer().println("          GNU Lesser General Public License v3.0");
         terminal.writer().println(borderLine());
         terminal.writer().println();
-        terminal.writer().println("PowerNukkitX is licensed under the GNU LGPL v3.0");
+        terminal.writer().println("Chromatix is licensed under the GNU LGPL v3.0");
         terminal.writer().println();
         terminal.writer().println("This program is free software: you can redistribute it and/or modify");
         terminal.writer().println("it under the terms of the GNU Lesser General Public License as published");

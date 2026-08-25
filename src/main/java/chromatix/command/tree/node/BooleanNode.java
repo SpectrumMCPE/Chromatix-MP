@@ -6,7 +6,7 @@ import com.google.common.collect.Sets;
 import java.util.Set;
 
 /**
- * Parses a command parameter as a {@link Boolean} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@link Boolean} value for Chromatix command trees.
  * <p>
  * This node is used for all command enums of type {@link chromatix.command.data.CommandEnum#ENUM_BOOLEAN ENUM_BOOLEAN}
  * if no custom {@link IParamNode} is specified. It validates the argument against the allowed boolean values and sets
@@ -30,11 +30,11 @@ import java.util.Set;
  * // Parses "true" or "false" as a Boolean
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see Boolean
  * @see chromatix.command.data.CommandEnum#ENUM_BOOLEAN
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * <p>
  * The parsing parameter corresponds to a {@link Boolean} value.
  * All commands enumerated as {@link chromatix.command.data.CommandEnum#ENUM_BOOLEAN ENUM_BOOLEAN} will default to this parser if no {@link IParamNode} is manually specified.

@@ -31,7 +31,7 @@ RUN useradd --user-group \
             --shell /usr/sbin/nologin \
             minecraft
 
-COPY --from=build --chown=minecraft:minecraft /src/build/powernukkitx.jar /app/powernukkitx.jar
+COPY --from=build --chown=minecraft:minecraft /src/build/chromatix.jar /app/chromatix.jar
 
 # Ports
 EXPOSE 19132/udp
@@ -51,4 +51,4 @@ WORKDIR /data
 
 # Run app
 ENTRYPOINT ["java"]
-CMD [ "-Dfile.encoding=UTF-8", "-Djansi.passthrough=true", "-Dterminal.ansi=true", "-XX:+UseZGC", "-XX:+ZGenerational", "-XX:+UseStringDeduplication", "--add-opens","java.base/java.lang=ALL-UNNAMED", "--add-opens","java.base/java.io=ALL-UNNAMED", "--add-opens","java.base/java.net=ALL-UNNAMED", "-cp","/app/powernukkitx.jar:./libs/*", "chromatix.PowerNukkitX", "--skip-setup", "--accept-license", "--language", "eng" ]
+CMD [ "-Dfile.encoding=UTF-8", "-Djansi.passthrough=true", "-Dterminal.ansi=true", "-XX:+UseZGC", "-XX:+ZGenerational", "-XX:+UseStringDeduplication", "--add-opens","java.base/java.lang=ALL-UNNAMED", "--add-opens","java.base/java.io=ALL-UNNAMED", "--add-opens","java.base/java.net=ALL-UNNAMED", "-cp","/app/chromatix.jar:./libs/*", "chromatix.Chromatix", "--skip-setup", "--accept-license", "--language", "eng" ]

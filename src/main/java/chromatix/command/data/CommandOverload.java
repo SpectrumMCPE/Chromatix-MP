@@ -1,7 +1,7 @@
 package chromatix.command.data;
 
 /**
- * Represents a command overload definition for PowerNukkitX commands.
+ * Represents a command overload definition for Chromatix commands.
  * <p>
  * This class is used to define a specific set of input parameters and chaining behavior for a command.
  * Each overload can specify its own argument signature and whether it supports chaining with other commands.
@@ -29,7 +29,7 @@ package chromatix.command.data;
  * overload.chaining = true;
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandInput
  * @see NukkitCommandData
  */

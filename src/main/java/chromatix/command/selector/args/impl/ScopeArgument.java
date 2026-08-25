@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Abstract base class for coordinate range selector arguments (such as dx, dy, dz) in PowerNukkitX.
+ * Abstract base class for coordinate range selector arguments (such as dx, dy, dz) in Chromatix.
  * <p>
  * ScopeArgument provides a foundation for implementing selector arguments that define a range along a specific axis
  * (X, Y, or Z) for entity selection. Typical subclasses include arguments for dx, dy, and dz, which are used to specify
@@ -39,10 +39,10 @@ import java.util.Map;
  * }
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.selector.args.ISelectorArgument
  * @see chromatix.command.selector.EntitySelectorAPI
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 
 

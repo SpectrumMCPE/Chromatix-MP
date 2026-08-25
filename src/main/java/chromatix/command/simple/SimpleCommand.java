@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.Method;
 
 /**
- * Represents a reflective command handler for PowerNukkitX using method invocation.
+ * Represents a reflective command handler for Chromatix using method invocation.
  * <p>
  * This class wraps a method and its owning object to provide a dynamic command handler. It supports argument count validation,
  * permission checks, console restrictions, and usage message feedback. The command is executed by invoking the specified method
@@ -44,7 +44,7 @@ import java.lang.reflect.Method;
  * @author Tee7even
  * @see chromatix.command.Command
  * @see java.lang.reflect.Method
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Slf4j
 public class SimpleCommand extends Command {

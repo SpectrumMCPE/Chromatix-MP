@@ -53,7 +53,7 @@ import java.util.regex.Pattern;
  * This class is not thread-safe. If used in a multi-threaded context, external synchronization is required.
  * </p>
  *
- * @author PowerNukkitX Team
+ * @author Chromatix Team
  * @since 1.0
  */
 @Slf4j

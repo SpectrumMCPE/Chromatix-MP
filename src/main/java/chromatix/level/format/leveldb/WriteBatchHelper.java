@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author Buddelbubi (PowerNukkitX)
+ * @author Buddelbubi (Chromatix)
  * @since 2026/04/29
  * Allows parallel chunk serialization.
  */

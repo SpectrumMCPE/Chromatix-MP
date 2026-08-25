@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Class for cactus flower block.
  *
- * @author daoge_cmd (PowerNukkitX Project)
+ * @author daoge_cmd (Chromatix Project)
  * @since 2023/7/15
  */
 public class BlockCactusFlower extends BlockFlower {

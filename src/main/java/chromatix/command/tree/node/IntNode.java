@@ -1,7 +1,7 @@
 package chromatix.command.tree.node;
 
 /**
- * Parses a command parameter as an {@link Integer} value for PowerNukkitX command trees.
+ * Parses a command parameter as an {@link Integer} value for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#INT INT}
  * if no custom {@link IParamNode} is specified. It attempts to parse the argument as an integer and sets the value or triggers an error if invalid.
@@ -24,11 +24,11 @@ package chromatix.command.tree.node;
  * // Parses: "42" as an Integer
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see Integer
  * @see chromatix.command.data.CommandParamType#INT
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * Parsed as {@link chromatix.level.Position Integer} value
  * <p>
  * All command parameters are of type {@link chromatix.command.data.CommandParamType#INT INT}. If no {@link IParamNode} is manually specified, this parser is used by default.

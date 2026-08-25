@@ -5,7 +5,7 @@ import chromatix.item.customitem.CustomItem;
 import chromatix.nbt.tag.CompoundTag;
 
 /**
- * Utility class for command-related helper methods in PowerNukkitX.
+ * Utility class for command-related helper methods in Chromatix.
  * <p>
  * Provides static methods to determine if custom blocks or custom items are hidden from command usage.
  * These methods inspect the NBT data of the provided block or item to check the 'is_hidden_in_commands' property.
@@ -32,11 +32,11 @@ import chromatix.nbt.tag.CompoundTag;
  * }
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CustomBlock
  * @see CustomItem
  * @see CompoundTag
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public final class CommandUtils {
     public static boolean isHiddenInCommands(CustomBlock block) {

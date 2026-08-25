@@ -3,7 +3,7 @@ package chromatix.command.tree.node;
 import java.util.regex.Pattern;
 
 /**
- * Parses and validates floating-point position arguments as {@link chromatix.level.Position} values for PowerNukkitX command trees.
+ * Parses and validates floating-point position arguments as {@link chromatix.level.Position} values for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#POSITION POSITION}
  * if no custom {@link IParamNode} is specified. It uses a regex pattern to validate and parse floating-point coordinates,
@@ -27,11 +27,11 @@ import java.util.regex.Pattern;
  * // Parses: "~1.5", "^2.0", "100.0"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.level.Position
  * @see chromatix.command.data.CommandParamType#POSITION
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class FloatPositionNode extends PositionNode {
     private static final Pattern FLOAT_POS_PATTERN = Pattern.compile("[~^]?[-+]?\\d+(?:\\.\\d+)?|[~^]");

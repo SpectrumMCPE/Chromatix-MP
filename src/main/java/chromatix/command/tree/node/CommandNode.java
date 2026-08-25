@@ -32,10 +32,10 @@ import java.util.List;
  * // Parses: say Hello World -> "say Hello World"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.data.CommandParamType#COMMAND
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class CommandNode extends ParamNode<String> {
     private final List<String> TMP = new ArrayList<>();

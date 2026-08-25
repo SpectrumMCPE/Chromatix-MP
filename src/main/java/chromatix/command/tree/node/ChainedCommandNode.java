@@ -35,9 +35,9 @@ import chromatix.command.CommandSender;
  * // Parses: execute as Steve at ~ ~ ~ run say Hello
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.defaults.ExecuteCommand
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 
 

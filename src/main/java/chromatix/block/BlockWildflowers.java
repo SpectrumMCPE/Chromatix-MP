@@ -15,7 +15,7 @@ import static chromatix.block.property.CommonBlockProperties.GROWTH;
 import static chromatix.block.property.CommonBlockProperties.MINECRAFT_CARDINAL_DIRECTION;
 
 /**
- * @author daoge_cmd (PowerNukkitX Project)
+ * @author daoge_cmd (Chromatix Project)
  * @since 2023/7/15
  */
 public class BlockWildflowers extends BlockFlower {

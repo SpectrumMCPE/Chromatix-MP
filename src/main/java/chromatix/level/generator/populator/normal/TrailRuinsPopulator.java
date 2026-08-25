@@ -15,7 +15,7 @@ import chromatix.utils.random.RandomSourceProvider;
 import chromatix.utils.random.Xoroshiro128;
 
 /**
- * Trail Ruins for PowerNukkitX
+ * Trail Ruins for Chromatix
  * @author Buddelbubi
  * @since 2026/03/31
  */

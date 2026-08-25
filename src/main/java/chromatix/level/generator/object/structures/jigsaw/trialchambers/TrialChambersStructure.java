@@ -34,7 +34,7 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import java.util.Map;
 
 /**
- * Trial Chamber Structure for PowerNukkitX
+ * Trial Chamber Structure for Chromatix
  *
  * @author Buddelbubi
  */

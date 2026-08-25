@@ -23,13 +23,13 @@ jobs:
         push: false
         load: true
         file: ${{ github.workspace }}/docker/Dockerfile
-        tags: local-powernukkitx
+        tags: local-chromatix
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
     - name: Test if it runs the server properly
       run: |
-        docker run -d --name pnx-test local-powernukkitx
+        docker run -d --name pnx-test local-chromatix
         ok=false
         for _ in $(seq 1 90); do
           if docker logs pnx-test 2>&1 | grep -q "Done ("; then

@@ -9,7 +9,7 @@ import java.util.Set;
 
 
 /**
- * Parses a command parameter as a {@link String} value from an enum for PowerNukkitX command trees.
+ * Parses a command parameter as a {@link String} value from an enum for Chromatix command trees.
  * <p>
  * This node is used for all command enum types if no custom {@link IParamNode} is specified. It validates the argument
  * against the allowed enum values, supports soft enums (accepts any value), and sets the parsed value or triggers an error if invalid.
@@ -33,10 +33,10 @@ import java.util.Set;
  * // Parses: "day", "night", "rain" as enum values
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandEnum
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class EnumNode extends ParamNode<String> {
     protected CommandEnum commandEnum;

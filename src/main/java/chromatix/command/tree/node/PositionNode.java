@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * Abstract base class for position parameter nodes in PowerNukkitX command trees.
+ * Abstract base class for position parameter nodes in Chromatix command trees.
  * <p>
  * Provides parsing and validation logic for position arguments, supporting absolute, relative (~), and local (^) coordinates.
  * Subclasses should provide the appropriate regex pattern for their coordinate type (integer or float).
@@ -35,10 +35,10 @@ import java.util.regex.Pattern;
  * public class MyPositionNode extends PositionNode { ... }
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.level.Position
  * @see ParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 /**
  * Base class for coordinate nodes

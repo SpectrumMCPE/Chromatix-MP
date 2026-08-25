@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for defining a set of command parameters for a command handler method in PowerNukkitX.
+ * Annotation for defining a set of command parameters for a command handler method in Chromatix.
  * <p>
  * This annotation is used to describe a named parameter set for a command, specifying the expected argument structure
  * for a particular command usage. Each {@code Parameters} annotation contains a name (for identification or documentation)
@@ -39,7 +39,7 @@ import java.lang.annotation.Target;
  * @author nilsbrychzy
  * @see Parameter
  * @see CommandParameters
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

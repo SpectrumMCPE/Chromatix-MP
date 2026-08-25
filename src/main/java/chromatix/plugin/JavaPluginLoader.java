@@ -112,7 +112,7 @@ public class JavaPluginLoader implements PluginLoader {
     @Override
     public PluginDescription getPluginDescription(File file) {
         try (JarFile jar = new JarFile(file)) {
-            JarEntry entry = jar.getJarEntry("powernukkitx.yml");
+            JarEntry entry = jar.getJarEntry("chromatix.yml");
             if (entry == null) {
                 entry = jar.getJarEntry("nukkit.yml");
                 if (entry == null) {
@@ -189,7 +189,7 @@ public class JavaPluginLoader implements PluginLoader {
     public void disablePlugin(Plugin plugin) {
         if (plugin instanceof PluginBase && plugin.isEnabled()) {
             if (plugin == InternalPlugin.INSTANCE) {
-                throw new UnsupportedOperationException("The PowerNukkitX Internal Plugin cannot be disabled");
+                throw new UnsupportedOperationException("The Chromatix Internal Plugin cannot be disabled");
             }
             log.info(this.server.getLanguage().tr("nukkit.plugin.disable", plugin.getDescription().getFullName()));
             this.server.getServiceManager().cancel(plugin);

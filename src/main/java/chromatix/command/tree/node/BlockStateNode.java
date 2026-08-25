@@ -8,7 +8,7 @@ import chromatix.block.property.type.BlockPropertyType;
 import java.util.Set;
 
 /**
- * Parses a command parameter as a {@link BlockState} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@link BlockState} value for Chromatix command trees.
  * <p>
  * This node must be defined immediately after a {@link BlockNode} and is used for parameters of type
  * {@link chromatix.command.data.CommandParamType#BLOCK_STATES}. It parses block state strings (e.g., "[facing=north,powered=true]")
@@ -34,11 +34,11 @@ import java.util.Set;
  * // Parses "[facing=\"north\",powered=\"true\"]" as a BlockState
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see BlockState
  * @see BlockNode
  * @see chromatix.command.data.CommandParamType#BLOCK_STATES
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class BlockStateNode extends ParamNode<BlockState> {
     @Override

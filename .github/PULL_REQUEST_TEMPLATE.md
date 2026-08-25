@@ -1,6 +1,6 @@
 <!--
   Read CONTRIBUTING.md before submitting:
-  https://github.com/PowerNukkitX/PowerNukkitX/blob/master/CONTRIBUTING.md
+  https://github.com/Chromatix/Chromatix/blob/master/CONTRIBUTING.md
 
   PRs that leave this template unfilled, or fill it with generated filler,
   are closed without review. Delete the HTML comments as you go.

@@ -1,4 +1,4 @@
 /**
- * Utils for PowerNukkitX
+ * Utils for Chromatix
  */
 package chromatix.utils;

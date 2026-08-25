@@ -165,7 +165,7 @@ public final class ServerMockFixture {
         doReturn(null).when(server).getScoreboardManager();
         try {
             final PositionTrackingService positionTrackingService =
-                    new PositionTrackingService(new File(PowerNukkitX.DATA_PATH,
+                    new PositionTrackingService(new File(Chromatix.DATA_PATH,
                             "services/position_tracking_db_" + ProcessHandle.current().pid()));
             doReturn(positionTrackingService).when(server).getPositionTrackingService();
         } catch (FileNotFoundException e) {

@@ -1,5 +1,5 @@
 /**
- * Provides a comprehensive logging and feedback utility for command execution in PowerNukkitX.
+ * Provides a comprehensive logging and feedback utility for command execution in Chromatix.
  * <p>
  * This record encapsulates all context and output for a command execution, including the command, sender, label, arguments,
  * output container, and plugin context. It offers a fluent API for adding success, error, and informational messages, handling
@@ -30,12 +30,12 @@
  * logger.addError("commands.error").output();
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see Command
  * @see CommandSender
  * @see CommandOutputContainer
  * @see Plugin
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 package chromatix.command.utils;
 

@@ -8,7 +8,7 @@ import org.cloudburstmc.protocol.bedrock.data.DisconnectFailReason;
 import org.cloudburstmc.protocol.bedrock.packet.ResourcePackChunkRequestPacket;
 
 /**
- * @author Buddelbubi (PowerNukkitX)
+ * @author Buddelbubi (Chromatix)
  * @since 2026/06/01
  */
 public class ResourcePackChunkRequestHandler implements PacketHandler<ResourcePackChunkRequestPacket> {

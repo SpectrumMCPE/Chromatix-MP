@@ -34,7 +34,7 @@ import java.util.List;
  * This class is not thread-safe. If used in a multi-threaded context, external synchronization is required.
  * </p>
  *
- * @author PowerNukkitX Team
+ * @author Chromatix Team
  * @since 1.0
  */
 

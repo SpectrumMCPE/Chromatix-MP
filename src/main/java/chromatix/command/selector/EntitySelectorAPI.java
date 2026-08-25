@@ -32,7 +32,7 @@ import static chromatix.command.selector.SelectorType.SELF;
 import static chromatix.command.selector.SelectorType.parseSelectorType;
 
 /**
- * Provides the API for parsing, registering, and matching Minecraft entity selectors in PowerNukkitX.
+ * Provides the API for parsing, registering, and matching Minecraft entity selectors in Chromatix.
  * <p>
  * EntitySelectorAPI enables advanced command selector functionality, supporting Minecraft's target selector syntax
  * (e.g., @p, @a, @e, @r, @s, @initiator) with argument parsing, caching, and extensible argument registration.
@@ -73,8 +73,8 @@ import static chromatix.command.selector.SelectorType.parseSelectorType;
  *
  * <b>Thread Safety:</b> All caches and registries are thread-safe for concurrent command execution.
  *
- * @author PowerNukkitX Project Team
- * @since PowerNukkitX 2.0.0
+ * @author Chromatix Project Team
+ * @since Chromatix 2.0.0
  */
 
 

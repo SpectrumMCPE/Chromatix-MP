@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Manages the loading, storage, and retrieval of function files for PowerNukkitX.
+ * Manages the loading, storage, and retrieval of function files for Chromatix.
  * <p>
  * The FunctionManager is responsible for discovering, parsing, and providing access to all available
  * function files (typically .mcfunction files) within a specified root directory. It supports reloading,
@@ -45,8 +45,8 @@ import java.util.Map;
  * }
  * </pre>
  *
- * @author PowerNukkitX Project Team
- * @since PowerNukkitX 2.0.0
+ * @author Chromatix Project Team
+ * @since Chromatix 2.0.0
  */
 @Getter
 public class FunctionManager {

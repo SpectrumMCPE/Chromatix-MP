@@ -1,4 +1,4 @@
-name: PowerNukkitX Build
+name: Chromatix Build
 
 on:
   pull_request:
@@ -72,7 +72,7 @@ jobs:
       - uses: actions/upload-artifact@v7
         if: github.event_name == 'pull_request' && needs.changes.outputs.relevant == 'true' && success()
         with:
-          name: powernukkitx-jar
+          name: chromatix-jar
           path: build/libs/*.jar
 
   check:

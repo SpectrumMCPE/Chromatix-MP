@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Instructions for AI coding agents working in the PowerNukkitX repository.
+Instructions for AI coding agents working in the Chromatix repository.
 
 If you are a human, read [CONTRIBUTING.md](CONTRIBUTING.md) instead - it is the authoritative document. This file exists so that agents produce work that passes review instead of getting closed unread. Where the two disagree, CONTRIBUTING.md wins.
 
@@ -8,7 +8,7 @@ If you are a human, read [CONTRIBUTING.md](CONTRIBUTING.md) instead - it is the 
 
 ## The project
 
-PowerNukkitX is a Minecraft: Bedrock Edition server software written in Java. Root package is `chromatix` - older `cn.nukkit` paths in search results, blog posts, or model memory are **out of date**, do not reintroduce them.
+Chromatix is a Minecraft: Bedrock Edition server software written in Java. Root package is `chromatix` - older `cn.nukkit` paths in search results, blog posts, or model memory are **out of date**, do not reintroduce them.
 
 - **Java:** 21. Source and target compatibility are pinned; do not use preview features or a newer language level.
 - **Build system:** Gradle (Kotlin DSL, `build.gradle.kts`).
@@ -39,7 +39,7 @@ Pay particular attention to the **"PRs we close without review"** and **"AI Tool
 | First full build                             | `./gradlew buildSkipChores` |
 | Incremental rebuild                          | `./gradlew buildFast`       |
 | Unit tests                                   | `./gradlew test`            |
-| Distributable jar (`build/powernukkitx.jar`) | `./gradlew shadowJar`       |
+| Distributable jar (`build/chromatix.jar`) | `./gradlew shadowJar`       |
 | Clean                                        | `./gradlew clean`           |
 
 On Windows use `gradlew.bat`. Run `./gradlew test` before you claim a change works. A change that does not compile is worse than no change.
@@ -110,7 +110,7 @@ The hard rules above are what gets a PR closed. This section is what gets a PR *
 
 ### Performance
 
-PowerNukkitX targets 20 ticks per second, which at the default tick rate is a **50 ms budget per tick**. Code on that path is hot in a way most application code is not.
+Chromatix targets 20 ticks per second, which at the default tick rate is a **50 ms budget per tick**. Code on that path is hot in a way most application code is not.
 
 **Who that budget belongs to depends on `level-settings.levelThread` in `pnx.yml`,** and you must not assume either mode:
 

@@ -3,7 +3,7 @@ package chromatix.level.generator.densityfunction;
 import chromatix.level.generator.noise.minecraft.noise.NormalNoise;
 
 /**
- * DensityFunction implementation for PowerNukkitX
+ * DensityFunction implementation for Chromatix
  * @author Buddelbubi
  * @since 2026/04/02
  */

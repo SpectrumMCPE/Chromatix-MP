@@ -7,7 +7,7 @@ import chromatix.command.utils.CommandUtils;
 import chromatix.registry.Registries;
 
 /**
- * Parses a command parameter as a {@link Block} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@link Block} value for Chromatix command trees.
  * <p>
  * This node is used for all command enums of type {@link CommandEnum#ENUM_BLOCK ENUM_BLOCK} if no custom {@link IParamNode}
  * is specified. It resolves block names (with or without namespace), supports legacy block name mapping, and rejects hidden custom blocks.
@@ -33,12 +33,12 @@ import chromatix.registry.Registries;
  * // Maps legacy names like "stone_slab" to "stone_block_slab"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see Block
  * @see CommandEnum#ENUM_BLOCK
  * @see IParamNode
  * @see Registries#BLOCK
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class BlockNode extends ParamNode<Block> {
     @Override

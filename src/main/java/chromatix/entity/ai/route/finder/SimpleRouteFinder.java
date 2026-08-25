@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Abstract class for non-asynchronous pathfinding <br/>
- * In PowerNukkitX's mob AI architecture, pathfinding for different entities is parallel rather than asynchronous <br/>
+ * In Chromatix's mob AI architecture, pathfinding for different entities is parallel rather than asynchronous <br/>
  * So we do not need asynchronous pathfinding
  */
 

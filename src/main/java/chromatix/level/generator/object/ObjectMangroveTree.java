@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Buddelbubi (PowerNukkitX)
+ * @author Buddelbubi (Chromatix)
  * @since 2026/05/14
  * @implNote <a href="https://github.com/misode/mcmeta/blob/data/data/minecraft/worldgen/configured_feature/mangrove.json">Source</a>
  */

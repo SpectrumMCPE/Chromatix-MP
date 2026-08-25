@@ -83,10 +83,10 @@ public class PluginManager {
         PluginLoader pluginLoader = fileAssociations.get(JavaPluginLoader.class.getName());
         InternalPlugin plugin = InternalPlugin.INSTANCE;
         Map<String, Object> info = new HashMap<>();
-        info.put("name", "PowerNukkitX");
+        info.put("name", "Chromatix");
         info.put("version", server.getNukkitVersion());
         info.put("api", java.util.Collections.singletonList(server.getApiVersion()));
-        info.put("website", "https://github.com/PowerNukkitX/PowerNukkitX");
+        info.put("website", "https://github.com/Chromatix/Chromatix");
         info.put("main", InternalPlugin.class.getName());
         File file;
         try {
@@ -95,7 +95,7 @@ public class PluginManager {
             file = new File(".");
         }
         PluginDescription description = new PluginDescription(info);
-        plugin.init(pluginLoader, this.getClass().getClassLoader(), server, description, new File("PowerNukkitX"), file);
+        plugin.init(pluginLoader, this.getClass().getClassLoader(), server, description, new File("Chromatix"), file);
         plugins.put(description.getName(), plugin);
         enablePlugin(plugin);
     }
@@ -563,7 +563,7 @@ public class PluginManager {
 
     public void disablePlugin(Plugin plugin) {
         if (InternalPlugin.INSTANCE == plugin) {
-            throw new UnsupportedOperationException("The PowerNukkitX Internal plugin can't be disabled.");
+            throw new UnsupportedOperationException("The Chromatix Internal plugin can't be disabled.");
         }
 
         if (plugin.isEnabled()) {

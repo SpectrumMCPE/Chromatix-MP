@@ -46,7 +46,7 @@ import java.util.Map;
 import static chromatix.block.BlockID.*;
 
 /**
- * Villages for PowerNukkitX
+ * Villages for Chromatix
  * @author Buddelbubi
  */
 public abstract class VillageStructure extends JigsawStructure {

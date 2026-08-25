@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'tag' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'tag' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'tag' argument is used to filter entities by their tags. It allows specifying required tags (entities must have all specified tags)
  * and excluded tags (entities must not have any of the specified tags). Negation is supported by prefixing a tag with '!' (e.g., @e[tag=!foo]).
@@ -22,7 +22,7 @@ import java.util.function.Predicate;
  *   <li>Allows multiple tags, with negation for exclusion.</li>
  *   <li>Parses arguments into required and excluded tag lists.</li>
  *   <li>Returns a predicate that checks if an entity matches all required tags and none of the excluded tags.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link CachedSimpleSelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link CachedSimpleSelectorArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -46,14 +46,14 @@ import java.util.function.Predicate;
  *   <li>Empty or null arguments are ignored.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CachedSimpleSelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
  * @see chromatix.command.CommandSender
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class Tag extends CachedSimpleSelectorArgument {
     @Override

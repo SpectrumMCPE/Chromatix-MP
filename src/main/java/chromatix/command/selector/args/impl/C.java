@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
 
 /**
- * Selector argument implementation for the 'c' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'c' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'c' argument is used to limit the number of entities returned by a selector, optionally reversing the order
  * to select the farthest entities instead of the nearest. This class sorts the entity list by distance to the
@@ -28,7 +28,7 @@ import java.util.function.Function;
  *   <li>Sorts entities by distance to the base position (nearest first).</li>
  *   <li>Negative values reverse the order (farthest first).</li>
  *   <li>Throws {@link chromatix.command.exceptions.SelectorSyntaxException} for zero or invalid values.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link chromatix.command.selector.args.CachedFilterSelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link chromatix.command.selector.args.CachedFilterSelectorArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -50,14 +50,14 @@ import java.util.function.Function;
  *   <li>Argument must not be zero (throws if zero).</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.selector.args.CachedFilterSelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
  * @see chromatix.command.CommandSender
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class C extends CachedFilterSelectorArgument {
     /**

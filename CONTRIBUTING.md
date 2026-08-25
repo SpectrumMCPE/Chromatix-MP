@@ -1,4 +1,4 @@
-# Contributing to PowerNukkitX
+# Contributing to Chromatix
 
 Thanks for taking the time to contribute. Bug fixes, features, and documentation improvements are all welcome.
 
@@ -23,7 +23,7 @@ Read the [README](README.md) first for an overview of the project.
 
 ### Reporting a bug
 
-[Search existing issues](https://github.com/PowerNukkitX/PowerNukkitX/issues) first - yours may already be tracked or fixed. If not, open one with the [issue form](https://github.com/PowerNukkitX/PowerNukkitX/issues/new/choose) and include:
+[Search existing issues](https://github.com/Chromatix/Chromatix/issues) first - yours may already be tracked or fixed. If not, open one with the [issue form](https://github.com/Chromatix/Chromatix/issues/new/choose) and include:
 
 - Server version (the commit hash from `/version`) and Java version
 - Bedrock client version
@@ -33,7 +33,7 @@ Read the [README](README.md) first for an overview of the project.
 
 Reproduce on a **vanilla PNX server with no plugins** if you can. If the bug only happens with a plugin loaded, say so explicitly.
 
-> Issues are not a support channel. For help, questions, or discussion, use the [Discord server](https://discord.com/invite/powernukkitx-944227466912870410).
+> Issues are not a support channel. For help, questions, or discussion, use the [Discord server](https://discord.com/invite/chromatix-944227466912870410).
 
 ### Working on an issue
 
@@ -53,7 +53,7 @@ We don't pre-assign issues. Pick one and open a PR. For anything large or archit
    |-------------------|--------------------------------------------------------|
    | `buildSkipChores` | First full build                                       |
    | `buildFast`       | Incremental rebuild                                    |
-   | `shadowJar`       | Produce a distributable `powernukkitx.jar` in `build/` |
+   | `shadowJar`       | Produce a distributable `chromatix.jar` in `build/` |
    | `clean`           | Wipe the build folder                                  |
    | `test`            | Run the unit tests                                     |
 
@@ -106,7 +106,7 @@ To keep review time available for real contributions, the following are closed o
 
 If your PR is closed under this section, you're welcome to fix the underlying problems and open a new one. Repeated offences lead to a block.
 
-Once merged, your contributions will be publicly visible in the project. You're officially a PowerNukkitX contributor! 🎉
+Once merged, your contributions will be publicly visible in the project. You're officially a Chromatix contributor! 🎉
 
 ---
 
@@ -161,7 +161,7 @@ Repeated misuse - undisclosed AI, untested generated code, hallucinated APIs - r
 
 ## ⚖️ Licensing & Copyright
 
-- Contributions are licensed under **LGPL-3.0**, the same licence as PowerNukkitX.
+- Contributions are licensed under **LGPL-3.0**, the same licence as Chromatix.
 - Do not copy code from incompatibly-licensed projects without permission and attribution.
 - If your contribution derives from another open-source project, name the source and its licence in the PR.
 - AI-generated code can reproduce copyrighted material verbatim. Review it before you submit - you are responsible for what you contribute.
@@ -177,7 +177,7 @@ Repeated misuse - undisclosed AI, untested generated code, hallucinated APIs - r
 
 ---
 
-Large codebases are daunting. If you're stuck or unsure where to start, ask on [Discord](https://discord.com/invite/powernukkitx-944227466912870410) - we're glad to point you in the right direction. Happy contributing! 🚀
+Large codebases are daunting. If you're stuck or unsure where to start, ask on [Discord](https://discord.com/invite/chromatix-944227466912870410) - we're glad to point you in the right direction. Happy contributing! 🚀
 
 ---
 

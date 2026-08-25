@@ -1,6 +1,6 @@
 package chromatix.utils;
 
-import chromatix.PowerNukkitX;
+import chromatix.Chromatix;
 
 import java.io.File;
 
@@ -9,7 +9,7 @@ public final class StartArgUtils {
     }
 
     public static boolean loadModules() {
-        Module module = PowerNukkitX.class.getModule();
+        Module module = Chromatix.class.getModule();
         Module targetModule = Object.class.getModule(); // java.base module
         module.addOpens("java.lang", targetModule);
         module.addOpens("java.io", targetModule);
@@ -19,7 +19,7 @@ public final class StartArgUtils {
     }
 
     public static boolean isShaded() {
-        var path = PowerNukkitX.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        var path = Chromatix.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         var jarFile = new File(path);
         if (jarFile.getName().contains("shaded")) {
             return true;

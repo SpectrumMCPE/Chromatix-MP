@@ -1,7 +1,7 @@
 package chromatix.command.tree.node;
 
 /**
- * Parses a command parameter as a relative {@link Float} value for PowerNukkitX command trees.
+ * Parses a command parameter as a relative {@link Float} value for Chromatix command trees.
  * <p>
  * This node extends {@link RelativeNumberNode} for float values, supporting both absolute and relative (~) notation.
  * <p>
@@ -25,7 +25,7 @@ package chromatix.command.tree.node;
  *
  * @author daoge_cmd
  * @see RelativeNumberNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class RelativeFloatNode extends RelativeNumberNode<Float> {
     @Override

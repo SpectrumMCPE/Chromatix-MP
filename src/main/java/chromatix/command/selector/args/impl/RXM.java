@@ -11,7 +11,7 @@ import chromatix.level.Location;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'rxm' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'rxm' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'rxm' argument is used to filter entities by their minimum pitch (vertical rotation), selecting only those
  * whose pitch is greater than or equal to the specified value. The value must be within the range -90 to 90.
@@ -24,7 +24,7 @@ import java.util.function.Predicate;
  *   <li>Checks that the argument is within the valid pitch range (-90 to 90).</li>
  *   <li>Returns a predicate that checks if an entity's pitch is greater than or equal to the specified value.</li>
  *   <li>Throws {@link chromatix.command.exceptions.SelectorSyntaxException} for out-of-bounds or invalid arguments.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link CachedSimpleSelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link CachedSimpleSelectorArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -46,14 +46,14 @@ import java.util.function.Predicate;
  *   <li>Argument must be a double between -90 and 90 (inclusive).</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CachedSimpleSelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
  * @see chromatix.command.CommandSender
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class RXM extends CachedSimpleSelectorArgument {
     @Override

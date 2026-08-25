@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for specifying the required permission to execute a command handler method in PowerNukkitX.
+ * Annotation for specifying the required permission to execute a command handler method in Chromatix.
  * <p>
  * This annotation is used to declare the permission node that a sender must have to execute the annotated command method.
  * The command framework uses this metadata to enforce permission checks before invoking the command logic, ensuring that
@@ -34,7 +34,7 @@ import java.lang.annotation.Target;
  * </pre>
  *
  * @author Tee7even
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

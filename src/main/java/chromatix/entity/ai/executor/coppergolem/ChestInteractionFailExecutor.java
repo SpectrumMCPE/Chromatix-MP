@@ -6,7 +6,7 @@ import chromatix.entity.ai.executor.IBehaviorExecutor;
 import chromatix.entity.mob.EntityCopperGolem;
 
 /**
- * @author Buddelbubi (PowerNukkitX)
+ * @author Buddelbubi (Chromatix)
  * @since 2026/07/24
  */
 public class ChestInteractionFailExecutor implements IBehaviorExecutor {

@@ -4,7 +4,7 @@ import chromatix.command.exceptions.SelectorSyntaxException;
 import lombok.Getter;
 
 /**
- * Enumerates all possible selector types used in command parsing for PowerNukkitX.
+ * Enumerates all possible selector types used in command parsing for Chromatix.
  * <p>
  * SelectorType defines the valid tokens that can be used with Minecraft selectors (e.g., @a, @e, @p, @r, @s, @initiator)
  * to target players, entities, or special command sources. Each enum constant is associated with a string token
@@ -31,9 +31,9 @@ import lombok.Getter;
  * String token = type.getToken(); // "a"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.exceptions.SelectorSyntaxException
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public enum SelectorType {
     /**

@@ -11,7 +11,7 @@ import chromatix.level.Location;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'ry' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'ry' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'ry' argument is used to filter entities by their yaw (horizontal rotation), selecting only those
  * whose yaw is less than or equal to the specified value. The value must be within the range -180 to 180.
@@ -24,7 +24,7 @@ import java.util.function.Predicate;
  *   <li>Checks that the argument is within the valid yaw range (-180 to 180).</li>
  *   <li>Returns a predicate that checks if an entity's yaw (converted to vanilla coordinate system) is less than or equal to the specified value.</li>
  *   <li>Throws {@link chromatix.command.exceptions.SelectorSyntaxException} for out-of-bounds or invalid arguments.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link CachedSimpleSelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link CachedSimpleSelectorArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -53,14 +53,14 @@ import java.util.function.Predicate;
  *   <li>This aligns +z with south, matching vanilla selector behavior.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CachedSimpleSelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
  * @see chromatix.command.CommandSender
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class RY extends CachedSimpleSelectorArgument {
     @Override

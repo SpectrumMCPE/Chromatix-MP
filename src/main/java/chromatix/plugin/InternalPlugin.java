@@ -9,6 +9,6 @@ public final class InternalPlugin extends PluginBase {
 
     @Override
     public String getName() {
-        return "PowerNukkitX";
+        return "Chromatix";
     }
 }

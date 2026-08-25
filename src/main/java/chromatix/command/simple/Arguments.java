@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for specifying the minimum and maximum number of arguments accepted by a command method in PowerNukkitX.
+ * Annotation for specifying the minimum and maximum number of arguments accepted by a command method in Chromatix.
  * <p>
  * This annotation is intended to be used on methods that handle command execution, allowing developers to declare
  * the expected argument count for validation and help generation. The command framework can use this metadata to
@@ -34,7 +34,7 @@ import java.lang.annotation.Target;
  * </pre>
  *
  * @author Tee7even
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

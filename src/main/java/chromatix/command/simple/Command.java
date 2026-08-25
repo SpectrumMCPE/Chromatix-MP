@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for defining a command handler method in PowerNukkitX.
+ * Annotation for defining a command handler method in Chromatix.
  * <p>
  * This annotation is used to mark methods as command handlers, specifying the command's name, description, usage message,
  * and aliases. The command framework uses this metadata to register and document commands, generate help messages,
@@ -34,7 +34,7 @@ import java.lang.annotation.Target;
  * </pre>
  *
  * @author Tee7even
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

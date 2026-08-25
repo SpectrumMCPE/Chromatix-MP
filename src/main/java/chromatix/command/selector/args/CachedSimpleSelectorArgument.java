@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 
 /**
- * Abstract base class for selector arguments that support caching of parsed predicates in PowerNukkitX.
+ * Abstract base class for selector arguments that support caching of parsed predicates in Chromatix.
  * <p>
  * This class is designed for selector arguments whose predicate results are not time-sensitive and can be reused
  * for the same argument set. It provides a built-in cache (using Caffeine) to store and retrieve {@link Predicate<Entity>}
@@ -49,11 +49,11 @@ import java.util.function.Predicate;
  *
  * <b>Thread Safety:</b> The cache is thread-safe for concurrent access.
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see ISelectorArgument
  * @see com.github.benmanes.caffeine.cache.Cache
  * @see Predicate
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 
 

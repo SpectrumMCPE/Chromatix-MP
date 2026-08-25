@@ -32,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
  * This enum is thread-safe as all enums in Java are inherently thread-safe.
  * </p>
  *
- * @author PowerNukkitX Team
+ * @author Chromatix Team
  * @since 1.0
  */
 @Slf4j

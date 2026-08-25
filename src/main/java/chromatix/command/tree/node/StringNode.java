@@ -1,7 +1,7 @@
 package chromatix.command.tree.node;
 
 /**
- * Parses a command parameter as a {@link String} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@link String} value for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#TEXT TEXT},
  * {@link chromatix.command.data.CommandParamType#STRING STRING}, or {@link chromatix.command.data.CommandParamType#FILE_PATH FILE_PATH}
@@ -24,9 +24,9 @@ package chromatix.command.tree.node;
  * // Parses: "filename.txt" as a String
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * <p>
  * Parsed as a {@link String} value
  * <p>

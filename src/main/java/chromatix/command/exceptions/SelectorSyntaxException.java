@@ -27,8 +27,8 @@ package chromatix.command.exceptions;
  * }
  * </pre>
  *
- * @author PowerNukkitX Project Team
- * @since PowerNukkitX 2.0.0
+ * @author Chromatix Project Team
+ * @since Chromatix 2.0.0
  */
 public class SelectorSyntaxException extends Exception {
 

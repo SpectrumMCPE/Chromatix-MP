@@ -97,7 +97,7 @@ public class LevelStorageTest {
     @Test
     void testUnknownBlockIdentityPreservedOnRoundTrip() {
         // Simulate a custom/removed block that has no implementation: a real name + states
-        final String customName = "powernukkitx:test_unknown_block";
+        final String customName = "chromatix:test_unknown_block";
         final NbtMap identity = NbtMap.builder()
                 .putString("name", customName)
                 .putCompound("states", NbtMap.builder().putInt("test_state", 3).build())

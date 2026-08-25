@@ -17,7 +17,7 @@ import chromatix.level.generator.ChunkGenerateContext;
 import chromatix.level.generator.object.BlockManager;
 
 /**
- * @author Buddelbubi (PowerNukkitX)
+ * @author Buddelbubi (Chromatix)
  * @since 2026/06/23
  */
 public class SulfurPoolWithPotentSulfurSnapToSurfaceFeature extends LakeFeature {

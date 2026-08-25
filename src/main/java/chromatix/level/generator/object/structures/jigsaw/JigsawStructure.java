@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Jigsaw Structure for PowerNukkitX
+ * Jigsaw Structure for Chromatix
  * @author Buddelbubi
  */
 @Slf4j

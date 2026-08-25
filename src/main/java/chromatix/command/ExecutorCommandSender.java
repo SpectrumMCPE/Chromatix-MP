@@ -41,9 +41,9 @@ import java.util.Map;
  * <p>
  * If the executor is itself an ExecutorCommandSender, {@link #getExecutor()} will recursively return the base executor.
  *
- * @author smartcmd (PowerNukkitX Project)
+ * @author smartcmd (Chromatix Project)
  * @see CommandSender
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class ExecutorCommandSender implements CommandSender {
     /**

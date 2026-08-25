@@ -1,6 +1,6 @@
 package chromatix.registry;
 
-import chromatix.PowerNukkitX;
+import chromatix.Chromatix;
 import chromatix.entity.Entity;
 import chromatix.entity.EntityFakeInventory;
 import chromatix.entity.EntityID;
@@ -568,7 +568,7 @@ public class EntityRegistry implements EntityID, IRegistry<EntityRegistry.Entity
     }
 
     public void rebuildTag() {
-        try (InputStream inputStream = PowerNukkitX.class.getModule().getResourceAsStream("gamedata/kaooot/entity_identifiers.nbt")) {
+        try (InputStream inputStream = Chromatix.class.getModule().getResourceAsStream("gamedata/kaooot/entity_identifiers.nbt")) {
             if (inputStream == null) {
                 throw new AssertionError("Could not find entity_identifiers.nbt");
             }

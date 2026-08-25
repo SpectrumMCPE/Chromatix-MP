@@ -13,7 +13,7 @@ import chromatix.level.generator.object.BlockManager;
 import chromatix.tags.BlockTags;
 
 /**
- * @author Buddelbubi (PowerNukkitX)
+ * @author Buddelbubi (Chromatix)
  * @since 2026/06/23
  */
 public abstract class LakeFeature extends GenerateFeature {

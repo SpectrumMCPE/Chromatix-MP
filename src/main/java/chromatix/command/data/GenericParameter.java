@@ -6,7 +6,7 @@ import org.cloudburstmc.protocol.bedrock.data.command.CommandParamOption;
 import org.cloudburstmc.protocol.bedrock.data.command.CommandParamType;
 
 /**
- * Provides generic parameter suppliers for common command argument types in PowerNukkitX.
+ * Provides generic parameter suppliers for common command argument types in Chromatix.
  * <p>
  * This interface defines reusable suppliers for frequently used command parameters, such as objectives,
  * items, chained commands, and origins. Each supplier produces a {@link CommandParameter} instance with
@@ -31,7 +31,7 @@ import org.cloudburstmc.protocol.bedrock.data.command.CommandParamType;
  * CommandParameter param = GenericParameter.ITEM_NAME.get(true);
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandParameter
  * @see CommandEnum
  * @see CommandParamOption

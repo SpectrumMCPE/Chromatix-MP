@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Represents the metadata and configuration for a command in PowerNukkitX.
+ * Represents the metadata and configuration for a command in Chromatix.
  * <p>
  * This class stores all relevant information about a command, including its description, aliases, overloads,
  * flags, permission level, and subcommands. It is used to define the structure, behavior, and access control
@@ -51,7 +51,7 @@ import java.util.Set;
  * data.flags.add(CommandData.Flag.HIDDEN);
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandEnum
  * @see CommandOverload
  * @see Flag
@@ -108,7 +108,7 @@ public class NukkitCommandData implements Cloneable {
      * Each flag represents a specific property or restriction for the command.
      * Flags can be combined using bitwise operations and stored in the {@link #flags} set.
      *
-     * @author PowerNukkitX Project Team
+     * @author Chromatix Project Team
      */
     public enum Flag {
         /**

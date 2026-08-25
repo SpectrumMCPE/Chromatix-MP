@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'type' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'type' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'type' argument is used to filter entities by their type identifier. It allows specifying required types (entities must match all specified types)
  * and excluded types (entities must not match any of the specified types). Negation is supported by prefixing a type with '!' (e.g., @e[type=!zombie]).
@@ -31,7 +31,7 @@ import java.util.function.Predicate;
  *   <li>Handles vanilla, custom, and player entity types.</li>
  *   <li>Returns a predicate that checks if an entity matches all required types and none of the excluded types.</li>
  *   <li>Provides a default value of 'minecraft:player' for random player selectors.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link CachedSimpleSelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link CachedSimpleSelectorArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -63,7 +63,7 @@ import java.util.function.Predicate;
  *   <li>Handles player entities and custom entities with special logic.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CachedSimpleSelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
@@ -72,7 +72,7 @@ import java.util.function.Predicate;
  * @see chromatix.entity.Entity
  * @see chromatix.entity.custom.CustomEntity
  * @see chromatix.registry.Registries
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class Type extends CachedSimpleSelectorArgument {
 

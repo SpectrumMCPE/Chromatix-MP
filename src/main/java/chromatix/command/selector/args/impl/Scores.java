@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'scores' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'scores' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'scores' argument is used to filter entities based on their scoreboard objective values. It allows specifying
  * one or more scoreboard objectives, each with a required value, a value range, or a negated condition. This enables
@@ -30,7 +30,7 @@ import java.util.function.Predicate;
  *   <li>Allows multiple objectives, each with a single value, a value range (min..max), or negation (prefix with '!').</li>
  *   <li>Parses the argument as a map of objective names to conditions, supporting both exact and ranged values.</li>
  *   <li>Returns a predicate that checks if an entity's score for each objective matches the specified condition(s).</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link CachedSimpleSelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link CachedSimpleSelectorArgument}.</li>
  *   <li>Handles both player and non-player entities using {@link PlayerScorer} and {@link EntityScorer}.</li>
  *   <li>Throws {@link chromatix.command.exceptions.SelectorSyntaxException} for invalid or empty score entries.</li>
  * </ul>
@@ -63,7 +63,7 @@ import java.util.function.Predicate;
  *   <li>Checks if the entity has a score for the specified objective before comparing values.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CachedSimpleSelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
@@ -72,7 +72,7 @@ import java.util.function.Predicate;
  * @see chromatix.entity.Entity
  * @see chromatix.scoreboard.scorer.PlayerScorer
  * @see chromatix.scoreboard.scorer.EntityScorer
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class Scores extends CachedSimpleSelectorArgument {
 

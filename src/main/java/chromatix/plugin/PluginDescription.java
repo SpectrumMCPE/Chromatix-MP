@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.function.Function;
 
 /**
- * Represents the metadata and configuration of a PowerNukkitX plugin as defined in its plugin.yml file.
+ * Represents the metadata and configuration of a Chromatix plugin as defined in its plugin.yml file.
  * <p>
  * This class parses and stores all information required to load and manage a plugin, including its name, main class,
  * version, API compatibility, dependencies, commands, permissions, authors, website, description, prefix, load order,

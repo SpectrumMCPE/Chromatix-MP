@@ -3,7 +3,7 @@ package chromatix.command.selector.args.impl;
 import chromatix.command.selector.args.ISelectorArgument;
 
 /**
- * Abstract base class for coordinate selector arguments (e.g., x, y, z) in PowerNukkitX.
+ * Abstract base class for coordinate selector arguments (e.g., x, y, z) in Chromatix.
  * <p>
  * This class provides a foundation for implementing selector arguments that represent coordinates in Minecraft selectors.
  * Typical subclasses include arguments for the x, y, and z coordinates used in entity selection (e.g., @e[x=100,y=64,z=200]).
@@ -31,10 +31,10 @@ import chromatix.command.selector.args.ISelectorArgument;
  * }
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.selector.args.ISelectorArgument
  * @see chromatix.command.selector.EntitySelectorAPI
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 
 

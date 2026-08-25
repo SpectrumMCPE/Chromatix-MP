@@ -47,8 +47,8 @@ public class Watchdog extends Thread {
                 } else if (responding && now - server.getBusyingTime() < 60) {
                     StringBuilder builder = new StringBuilder(
                             "--------- Server stopped responding --------- (" + Math.round(diff / 1000d) + "s)").append('\n')
-                            .append("Please report this to PowerNukkitX:").append('\n')
-                            .append(" - https://github.com/PowerNukkitX/PowerNukkitX/issues/new").append('\n')
+                            .append("Please report this to Chromatix:").append('\n')
+                            .append(" - https://github.com/Chromatix/Chromatix/issues/new").append('\n')
                             .append("---------------- Main thread ----------------").append('\n');
 
                     dumpThread(ManagementFactory.getThreadMXBean().getThreadInfo(this.server.getPrimaryThread().threadId(), Integer.MAX_VALUE), builder);

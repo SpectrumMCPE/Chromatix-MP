@@ -12,7 +12,7 @@ import chromatix.level.Location;
 import java.util.function.Predicate;
 
 /**
- * Selector argument implementation for the 'lm' parameter in Minecraft selectors (PowerNukkitX).
+ * Selector argument implementation for the 'lm' parameter in Minecraft selectors (Chromatix).
  * <p>
  * The 'lm' argument is used to filter players by their minimum experience level, selecting only those whose level is greater than or equal
  * to the specified value. This is commonly used in selectors such as @p[lm=10] to select players with level 10 or above.
@@ -23,7 +23,7 @@ import java.util.function.Predicate;
  *   <li>Validates that only one argument is provided and that it is not negated.</li>
  *   <li>Parses the argument as an integer and applies the filter to player entities.</li>
  *   <li>Returns a predicate that checks if a player's experience level is greater than or equal to the specified value.</li>
- *   <li>Integrates with the PowerNukkitX selector argument system via {@link CachedSimpleSelectorArgument}.</li>
+ *   <li>Integrates with the Chromatix selector argument system via {@link CachedSimpleSelectorArgument}.</li>
  * </ul>
  * <p>
  * <b>Usage:</b>
@@ -44,7 +44,7 @@ import java.util.function.Predicate;
  *   <li>Argument must be a valid integer.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CachedSimpleSelectorArgument
  * @see chromatix.command.selector.ParseUtils
  * @see chromatix.command.selector.SelectorType
@@ -52,7 +52,7 @@ import java.util.function.Predicate;
  * @see chromatix.level.Location
  * @see chromatix.entity.Entity
  * @see chromatix.Player
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public class LM extends CachedSimpleSelectorArgument {
     @Override

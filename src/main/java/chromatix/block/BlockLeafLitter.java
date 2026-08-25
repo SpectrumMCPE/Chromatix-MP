@@ -17,7 +17,7 @@ import static chromatix.block.property.CommonBlockProperties.MINECRAFT_CARDINAL_
 /**
  * Class for the leaf litter block.
  *
- * @author daoge_cmd (PowerNukkitX Project)
+ * @author daoge_cmd (Chromatix Project)
  * @since 2023/7/15
  */
 public class BlockLeafLitter extends BlockFlowable {

@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 
 /**
- * Parses comparison operator arguments (e.g., &lt;, &lt;=, =, &gt;=, &gt;) as {@link String} values for PowerNukkitX command trees.
+ * Parses comparison operator arguments (e.g., &lt;, &lt;=, =, &gt;=, &gt;) as {@link String} values for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#COMPARE_OPERATOR COMPARE_OPERATOR}
  * if no custom {@link IParamNode} is specified. It validates the argument against allowed comparison operators and sets
@@ -30,10 +30,10 @@ import java.util.HashSet;
  * // Parses: "&lt;" or "&gt;=" as a String
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.data.CommandParamType#COMPARE_OPERATOR
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * Responsible for parsing comparison operations within ExecuteCommand, resolving them to {@link String} values
  * <p>
  * All command parameters are of type {@link chromatix.command.data.CommandParamType#COMPARE_OPERATOR COMPARE_OPERATOR}. If no {@link IParamNode} is manually specified, this parser is used by default.

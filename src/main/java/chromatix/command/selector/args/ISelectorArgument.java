@@ -14,7 +14,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * Defines the contract for a selector argument used in Minecraft command selectors in PowerNukkitX.
+ * Defines the contract for a selector argument used in Minecraft command selectors in Chromatix.
  * <p>
  * Implementations of this interface provide logic for parsing, filtering, and matching entities based on selector arguments
  * (e.g., type, name, tag, coordinates) in advanced command selector syntax (such as @e[type=zombie]).
@@ -58,7 +58,7 @@ import java.util.function.Predicate;
  *
  * <b>Thread Safety:</b> Implementations should be stateless or thread-safe for concurrent command execution.
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.selector.EntitySelectorAPI
  * @see SelectorType
  * @see CommandSender
@@ -66,7 +66,7 @@ import java.util.function.Predicate;
  * @see Location
  * @see Predicate
  * @see Function
- * @since PowerNukkitX 2.0.0
+ * @since Chromatix 2.0.0
  */
 public interface ISelectorArgument extends Comparable<ISelectorArgument> {
     /**

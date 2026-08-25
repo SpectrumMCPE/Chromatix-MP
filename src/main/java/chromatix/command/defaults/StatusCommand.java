@@ -1,6 +1,6 @@
 package chromatix.command.defaults;
 
-import chromatix.PowerNukkitX;
+import chromatix.Chromatix;
 import chromatix.Server;
 import chromatix.command.CommandSender;
 import chromatix.command.data.CommandEnum;
@@ -205,7 +205,7 @@ public final class StatusCommand extends TestCommand implements CoreCommand {
         sender.sendMessage(TextFormat.GREEN + "---- " + TextFormat.WHITE + "Server status" + TextFormat.GREEN + " ----");
         if (simpleMode) {
 
-            long time = System.currentTimeMillis() - PowerNukkitX.START_TIME;
+            long time = System.currentTimeMillis() - Chromatix.START_TIME;
 
             sender.sendMessage(TextFormat.GOLD + "Uptime: " + formatUptime(time));
 
@@ -269,7 +269,7 @@ public final class StatusCommand extends TestCommand implements CoreCommand {
             {
                 sender.sendMessage(TextFormat.YELLOW + ">>> " + TextFormat.WHITE + "PNX Server Info" + TextFormat.YELLOW + " <<<" + TextFormat.RESET);
                 // runtime
-                long time = System.currentTimeMillis() - PowerNukkitX.START_TIME;
+                long time = System.currentTimeMillis() - Chromatix.START_TIME;
                 sender.sendMessage(TextFormat.GOLD + "Uptime: " + formatUptime(time));
                 // TPS
                 var tps = server.getTicksPerSecond();

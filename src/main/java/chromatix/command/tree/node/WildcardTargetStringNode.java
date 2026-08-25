@@ -2,14 +2,14 @@ package chromatix.command.tree.node;
 
 
 /**
- * Parses a command parameter as a {@link String} value for wildcard target parameters in PowerNukkitX command trees.
+ * Parses a command parameter as a {@link String} value for wildcard target parameters in Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#WILDCARD_TARGET WILDCARD_TARGET}
  * if no custom {@link IParamNode} is specified. It simply sets the argument as the node value and does not perform validation.
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see StringNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * <p>
  * Parsed as {@link String} value
  * <p>

@@ -1,12 +1,12 @@
 # Security Policy
 
-PowerNukkitX is a Minecraft: Bedrock Edition server software. A vulnerability here can mean a compromised host machine, hijacked player data, or a server that can be taken offline by anyone who can connect to it. We take reports seriously, and we're grateful to everyone who takes the time to send one.
+Chromatix is a Minecraft: Bedrock Edition server software. A vulnerability here can mean a compromised host machine, hijacked player data, or a server that can be taken offline by anyone who can connect to it. We take reports seriously, and we're grateful to everyone who takes the time to send one.
 
 ---
 
 ## Supported Versions
 
-PowerNukkitX ships as a rolling snapshot built from `master`. There are no long-term support branches.
+Chromatix ships as a rolling snapshot built from `master`. There are no long-term support branches.
 
 | Version                    | Supported                          |
 |----------------------------|------------------------------------|
@@ -24,13 +24,13 @@ PowerNukkitX ships as a rolling snapshot built from `master`. There are no long-
 
 Report privately through **GitHub Private Vulnerability Reporting**:
 
-👉 **[Report a vulnerability](https://github.com/PowerNukkitX/PowerNukkitX/security/advisories/new)**
+👉 **[Report a vulnerability](https://github.com/Chromatix/Chromatix/security/advisories/new)**
 
 (Also reachable from the repository's **Security** tab → **Report a vulnerability**.)
 
 This creates a private advisory visible only to you and the maintainers. It stays private until we publish it.
 
-If you cannot use GitHub Private Vulnerability Reporting for some reason, ask a maintainer on [Discord](https://discord.com/invite/powernukkitx-944227466912870410) for a private channel - **without describing the vulnerability in the message**.
+If you cannot use GitHub Private Vulnerability Reporting for some reason, ask a maintainer on [Discord](https://discord.com/invite/chromatix-944227466912870410) for a private channel - **without describing the vulnerability in the message**.
 
 ### What to include
 
@@ -75,7 +75,7 @@ Not sure whether something is in scope? Report it privately. We'd rather triage 
 
 ## What Happens Next
 
-PowerNukkitX is maintained by volunteers in their free time. We don't promise a fix deadline we can't meet, so here's what we actually commit to:
+Chromatix is maintained by volunteers in their free time. We don't promise a fix deadline we can't meet, so here's what we actually commit to:
 
 1. **Acknowledgement.** We aim to confirm receipt within a few days.
 2. **Triage.** We reproduce the issue and tell you our assessment of severity and whether we consider it in scope.
@@ -101,7 +101,7 @@ We do not run a paid bug bounty program - this is a volunteer open-source projec
 
 If a security advisory is published, the fix is in the latest snapshot. To stay safe:
 
-- Update to the [latest release](https://github.com/PowerNukkitX/PowerNukkitX/releases/latest) regularly
+- Update to the [latest release](https://github.com/Chromatix/Chromatix/releases/latest) regularly
 - Watch this repository (**Watch** → **Custom** → **Security alerts**) to be notified of advisories
 - Keep `xbox-auth` enabled
 - Never expose RCON to the public internet
@@ -110,4 +110,4 @@ If a security advisory is published, the fix is in the latest snapshot. To stay 
 
 ---
 
-Thank you for helping keep PowerNukkitX and its server operators safe.
+Thank you for helping keep Chromatix and its server operators safe.

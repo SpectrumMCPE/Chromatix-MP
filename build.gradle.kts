@@ -26,7 +26,7 @@ plugins {
 
 group = "chromatix"
 version = providers.gradleProperty("buildVersion").orElse("nightly-SNAPSHOT").get()
-description = "powernukkitx"
+description = "chromatix"
 java.sourceCompatibility = JavaVersion.VERSION_21
 java.targetCompatibility = JavaVersion.VERSION_21
 
@@ -278,7 +278,7 @@ tasks.named<ShadowJar>("shadowJar") {
     mergeServiceFiles()
 
     destinationDirectory.set(layout.buildDirectory)
-    archiveFileName.set("${project.description}.jar")
+    archiveFileName.set("chromatix.jar")
 
     // Enable ZIP64 format for large archives (>4GB)
     isZip64 = true
@@ -323,7 +323,7 @@ publishing {
             from(components["java"])
             artifactId = "server"
             pom {
-                url.set("https://github.com/PowerNukkitX/PowerNukkitX")
+                url.set("https://github.com/Chromatix/Chromatix")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -331,9 +331,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/PowerNukkitX/PowerNukkitX.git")
-                    developerConnection.set("scm:git:ssh://github.com/PowerNukkitX/PowerNukkitX.git")
-                    url.set("https://github.com/PowerNukkitX/PowerNukkitX")
+                    connection.set("scm:git:git://github.com/Chromatix/Chromatix.git")
+                    developerConnection.set("scm:git:ssh://github.com/Chromatix/Chromatix.git")
+                    url.set("https://github.com/Chromatix/Chromatix")
                 }
             }
         }

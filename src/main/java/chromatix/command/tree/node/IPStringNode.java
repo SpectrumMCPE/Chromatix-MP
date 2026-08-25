@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 /**
- * Parses and validates an IP address argument as a {@link String} value for PowerNukkitX command trees.
+ * Parses and validates an IP address argument as a {@link String} value for Chromatix command trees.
  * <p>
  * This node is not used by default and must be manually specified. It uses a regex pattern to validate IPv4 addresses
  * and sets the value or triggers an error if invalid.
@@ -26,10 +26,10 @@ import java.util.regex.Pattern;
  * // Parses: "192.168.1.1"
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see String
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * Validate the IP address and resolve it to a {@link String} value
  * <p>
  * Not used by default; must be manually specified

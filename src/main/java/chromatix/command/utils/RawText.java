@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 /**
  * Represents a Minecraft Bedrock Edition rawtext structure and provides parsing, manipulation,
- * and serialization utilities for PowerNukkitX commands and messages.
+ * and serialization utilities for Chromatix commands and messages.
  * <p>
  * This class allows parsing JSON-formatted rawtext, pre-processing selectors and scoreboard scores,
  * and converting to and from JSON. It supports all Bedrock rawtext component types, including text,
@@ -52,11 +52,11 @@ import java.util.stream.Collectors;
  * String json = raw.toRawText();
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see CommandSender
  * @see EntitySelectorAPI
  * @see JSONUtils
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Getter
 public class RawText {

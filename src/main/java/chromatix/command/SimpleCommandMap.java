@@ -36,7 +36,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 /**
- * Implements the command registry and execution system for PowerNukkitX.
+ * Implements the command registry and execution system for Chromatix.
  * <p>
  * SimpleCommandMap manages the registration, execution, and organization of all commands in the server.
  * It supports default commands, plugin commands, annotation-based commands, aliases, and advanced argument parsing.

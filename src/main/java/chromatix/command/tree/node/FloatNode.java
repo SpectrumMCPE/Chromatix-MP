@@ -2,7 +2,7 @@ package chromatix.command.tree.node;
 
 
 /**
- * Parses a command parameter as a {@link Float} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@link Float} value for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#FLOAT FLOAT}
  * if no custom {@link IParamNode} is specified. It attempts to parse the argument as a float and sets the value or triggers an error if invalid.
@@ -25,11 +25,11 @@ package chromatix.command.tree.node;
  * // Parses: "1.5" as a Float
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see Float
  * @see chromatix.command.data.CommandParamType#FLOAT
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * <p>
  * Parsed as {@link Float} values
  * <p>

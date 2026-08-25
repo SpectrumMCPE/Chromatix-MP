@@ -760,7 +760,7 @@ public class HumanInventory extends BaseInventory {
      * Sends the player's armor contents during the initial login sequence.
      * <p>
      * Initializes the armor container with five equipment slots:
-     * head, torso, legs, feet and body. PowerNukkitX currently stores the
+     * head, torso, legs, feet and body. Chromatix currently stores the
      * first four slots, so the body slot is initialized as air.
      * </p>
      *

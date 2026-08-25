@@ -148,9 +148,9 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 
 /**
- * Represents the main server singleton for PowerNukkitX.
+ * Represents the main server singleton for Chromatix.
  * <p>
- * This class is instantiated in {@link PowerNukkitX} and can be accessed via
+ * This class is instantiated in {@link Chromatix} and can be accessed via
  * {@link chromatix.Server#getInstance()}.
  * The constructor performs various initialization tasks, including
  * configuration loading, thread and thread pool creation,
@@ -407,9 +407,9 @@ public class Server {
 
         org.apache.logging.log4j.Level targetLevel = org.apache.logging.log4j.Level
             .getLevel(this.settings.debugSettings().level());
-        org.apache.logging.log4j.Level currentLevel = PowerNukkitX.getLogLevel();
+        org.apache.logging.log4j.Level currentLevel = Chromatix.getLogLevel();
         if (targetLevel != null && targetLevel.intLevel() > currentLevel.intLevel()) {
-            PowerNukkitX.setLogLevel(targetLevel);
+            Chromatix.setLogLevel(targetLevel);
         }
 
         if (!StartArgUtils.loadModules()) {
@@ -597,7 +597,7 @@ public class Server {
             System.exit(1);
         }
         this.resourcePackManager = new ResourcePackManager(
-            new ZippedResourcePackLoader(new File(PowerNukkitX.DATA_PATH, "resource_packs")),
+            new ZippedResourcePackLoader(new File(Chromatix.DATA_PATH, "resource_packs")),
             new JarPluginResourcePackLoader(new File(this.pluginPath)),
             new CdnResourcePackLoader(this.settings.gameplaySettings()));
         this.commandMap = new SimpleCommandMap(this);
@@ -609,7 +609,7 @@ public class Server {
         try {
             log.debug("Loading position tracking service");
             this.positionTrackingService = new PositionTrackingService(
-                new File(PowerNukkitX.DATA_PATH, "services/position_tracking_db"));
+                new File(Chromatix.DATA_PATH, "services/position_tracking_db"));
         } catch (IOException e) {
             log.error("Failed to start the Position Tracking DB service!", e);
         }
@@ -1023,7 +1023,7 @@ public class Server {
             TextFormat.YELLOW + (this.getIp().isEmpty() ? "*" : this.getIp()),
             TextFormat.YELLOW + String.valueOf(this.getPort())));
         log.info(this.getLanguage().tr("nukkit.server.startFinished",
-            String.valueOf((double) (System.currentTimeMillis() - PowerNukkitX.START_TIME) / 1000)));
+            String.valueOf((double) (System.currentTimeMillis() - Chromatix.START_TIME) / 1000)));
 
         ServerStartedEvent serverStartedEvent = new ServerStartedEvent();
         getPluginManager().callEvent(serverStartedEvent);
@@ -1328,7 +1328,7 @@ public class Server {
 
     // TODO: Fix title tick
     public void titleTick() {
-        if (!PowerNukkitX.ANSI || !PowerNukkitX.TITLE) {
+        if (!Chromatix.ANSI || !Chromatix.TITLE) {
             return;
         }
 
@@ -1341,7 +1341,7 @@ public class Server {
             + " | " + this.getGitCommit()
             + " | Online " + this.players.size() + "/" + this.getMaxPlayers()
             + " | Memory " + usage;
-        if (!PowerNukkitX.shortTitle) {
+        if (!Chromatix.shortTitle) {
             title += " | U " + NukkitMath.round((this.network.getUpload() / 1024 * 1000), 2)
                 + " D " + NukkitMath.round((this.network.getDownload() / 1024 * 1000), 2) + " kB/s";
         }
@@ -2371,7 +2371,7 @@ public class Server {
     /**
      * Deletes all player data (both UUID mapping and player data) for the specified
      * player name.
-     * This method handles the LevelDB structure used by PowerNukkitX where player
+     * This method handles the LevelDB structure used by Chromatix where player
      * data is stored
      * in two separate databases: one for name-to-UUID mapping and another for
      * actual player data.
@@ -2440,23 +2440,23 @@ public class Server {
      * @return The name of server
      */
     public String getName() {
-        return "PowerNukkitX";
+        return "Chromatix";
     }
 
     public String getNukkitVersion() {
-        return PowerNukkitX.VERSION;
+        return Chromatix.VERSION;
     }
 
     public String getBStatsNukkitVersion() {
-        return PowerNukkitX.VERSION;
+        return Chromatix.VERSION;
     }
 
     public String getGitCommit() {
-        return PowerNukkitX.GIT_COMMIT;
+        return Chromatix.GIT_COMMIT;
     }
 
     public String getCodename() {
-        return PowerNukkitX.CODENAME;
+        return Chromatix.CODENAME;
     }
 
     public String getVersion() {
@@ -2464,7 +2464,7 @@ public class Server {
     }
 
     public String getApiVersion() {
-        return PowerNukkitX.API_VERSION;
+        return Chromatix.API_VERSION;
     }
 
     // endregion
@@ -3113,7 +3113,7 @@ public class Server {
     public String getSubMotd() {
         String subMotd = this.settings.baseSettings().subMotd();
         if (subMotd.isEmpty()) {
-            subMotd = "powernukkitx.org";
+            subMotd = "chromatix.org";
         }
         return subMotd;
     }

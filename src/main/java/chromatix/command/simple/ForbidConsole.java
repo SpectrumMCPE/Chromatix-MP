@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation to indicate that a command handler method cannot be executed from the console in PowerNukkitX.
+ * Annotation to indicate that a command handler method cannot be executed from the console in Chromatix.
  * <p>
  * This annotation is used to restrict the execution of a command to in-game players only. When applied to a command handler method,
  * the command framework will prevent the console (or any non-player sender) from invoking the annotated command, typically returning
@@ -34,7 +34,7 @@ import java.lang.annotation.Target;
  * </pre>
  *
  * @author Tee7even
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

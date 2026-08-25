@@ -44,7 +44,7 @@ import java.util.jar.JarFile;
  * This class is thread-safe for typical usage, as the internal registry is only modified via synchronized static methods.
  * </p>
  *
- * @author PowerNukkitX Team
+ * @author Chromatix Team
  * @since 1.0
  */
 

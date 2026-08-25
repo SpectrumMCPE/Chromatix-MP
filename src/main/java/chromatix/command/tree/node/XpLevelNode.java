@@ -1,7 +1,7 @@
 package chromatix.command.tree.node;
 
 /**
- * Parses and validates experience level arguments as {@link Integer} values for PowerNukkitX command trees.
+ * Parses and validates experience level arguments as {@link Integer} values for Chromatix command trees.
  * <p>
  * This node is not used by default and must be manually specified. It parses arguments ending with 'l' or 'L' as experience levels.
  *
@@ -12,9 +12,9 @@ package chromatix.command.tree.node;
  *   <li>Used for experience level parameter parsing when manually specified.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see ParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class XpLevelNode extends ParamNode<Integer> {
     @Override

@@ -11,7 +11,7 @@ import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
- * Parses a command parameter as a {@code List<Entity>} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@code List<Entity>} value for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#TARGET TARGET}
  * if no custom {@link IParamNode} is specified. It supports entity selectors, player names, and will be extended to support UUID or xuid.
@@ -35,11 +35,11 @@ import java.util.List;
  * // Parses: @a, Steve, @e[type=zombie]
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see chromatix.command.data.CommandParamType#TARGET
  * @see EntitySelectorAPI
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class EntitiesNode extends TargetNode<Entity> {
 

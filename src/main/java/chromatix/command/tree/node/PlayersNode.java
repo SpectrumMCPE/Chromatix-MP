@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Parses a command parameter as a {@code List<Player>} value for PowerNukkitX command trees.
+ * Parses a command parameter as a {@code List<Player>} value for Chromatix command trees.
  * <p>
  * This node is not used by default and must be manually specified. It supports entity selectors and player name lookup,
  * returning a list of matching {@link Player} instances.
@@ -35,11 +35,11 @@ import java.util.stream.Collectors;
  * // Parses: @a, Steve, @p
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see Player
  * @see EntitySelectorAPI
  * @see IParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  */
 public class PlayersNode extends TargetNode<Player> {
     @Override

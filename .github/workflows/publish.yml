@@ -1,4 +1,4 @@
-name: PowerNukkitX Publish
+name: Chromatix Publish
 
 on:
   push:
@@ -69,7 +69,7 @@ jobs:
               exit 1
             fi
             echo "tag=${{ inputs.version }}"                 >> $GITHUB_OUTPUT
-            echo "title=PowerNukkitX ${{ inputs.version }}"  >> $GITHUB_OUTPUT
+            echo "title=Chromatix ${{ inputs.version }}"  >> $GITHUB_OUTPUT
             echo "skip_release=false"                        >> $GITHUB_OUTPUT
             echo "is_draft=${{ inputs.draft }}"              >> $GITHUB_OUTPUT
             echo "is_prerelease=false"                       >> $GITHUB_OUTPUT
@@ -117,7 +117,7 @@ jobs:
             exit 1
           fi
 
-          FILE=src/main/java/chromatix/PowerNukkitX.java
+          FILE=src/main/java/chromatix/Chromatix.java
           sed -i -E "s|(API_VERSION = dynamic\(\")[^\"]*(\"\))|\1${VERSION}\2|" "$FILE"
 
           CURRENT=$(sed -n 's/.*API_VERSION = dynamic("\([^"]*\)").*/\1/p' "$FILE")
@@ -170,7 +170,7 @@ jobs:
               }
           }
           JAVA
-          MINECRAFT_VERSION=$(java -cp build/powernukkitx.jar /tmp/McVersion.java)
+          MINECRAFT_VERSION=$(java -cp build/chromatix.jar /tmp/McVersion.java)
           if ! echo "$MINECRAFT_VERSION" | grep -Eq '^[0-9]+(\.[0-9]+)+$'; then
             echo "Unexpected Minecraft version from NetworkConstants.CODEC: '$MINECRAFT_VERSION'" >&2
             exit 1
@@ -179,8 +179,8 @@ jobs:
 
       - uses: actions/upload-artifact@v7
         with:
-          name: powernukkitx.jar
-          path: build/powernukkitx.jar
+          name: chromatix.jar
+          path: build/chromatix.jar
 
       - if: success()
         uses: codecov/test-results-action@0fa95f0e1eeaafde2c782583b36b28ad0d8c77d3
@@ -236,7 +236,7 @@ jobs:
         id: versions
         run: |
           PROTOCOL_VERSION=$(sed -En 's/.*CODEC = Bedrock_v([0-9]+)(_[a-zA-Z0-9]+)*\.CODEC.*/\1/p' src/main/java/chromatix/network/NetworkConstants.java | head -n 1)
-          API_VERSION=$(sed -n 's/.*API_VERSION = dynamic("\([^"]*\)").*/\1/p' src/main/java/chromatix/PowerNukkitX.java)
+          API_VERSION=$(sed -n 's/.*API_VERSION = dynamic("\([^"]*\)").*/\1/p' src/main/java/chromatix/Chromatix.java)
           MINECRAFT_VERSION="${{ needs.publish.outputs.minecraft_version }}"
           if [ -z "$PROTOCOL_VERSION" ]; then
             echo "Unable to extract protocol version from NetworkConstants.java" >&2
@@ -277,7 +277,7 @@ jobs:
 
       - uses: actions/download-artifact@v8
         with:
-          name: powernukkitx.jar
+          name: chromatix.jar
           path: build
 
       - name: Create changelog file
@@ -292,7 +292,7 @@ jobs:
           FILE="changelogs/${TAG}.md"
 
           cat > "$FILE" << EOF
-          # Changelog - PowerNukkitX $TAG
+          # Changelog - Chromatix $TAG
 
           > **Release:** [$TAG](${{ github.server_url }}/${{ github.repository }}/releases/tag/$TAG)
 
@@ -300,7 +300,7 @@ jobs:
 
           | Property | Value |
           |----------|-------|
-          | PowerNukkitX Version | $TAG |
+          | Chromatix Version | $TAG |
           | API Version | $API_VERSION |
           | Minecraft Version | $MINECRAFT_VERSION |
           | Protocol Version | $PROTOCOL_VERSION |
@@ -384,7 +384,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Changelog already exists, skipping commit"
           else
-            git commit -m "docs: add changelog for PowerNukkitX ${TAG} [skip ci]
+            git commit -m "docs: add changelog for Chromatix ${TAG} [skip ci]
 
           Release ${TAG}
           - Minecraft: ${MINECRAFT_VERSION}
@@ -406,11 +406,11 @@ jobs:
 
           cat > release-notes.md << EOF
 
-          ## 📦 PowerNukkitX $TAG
+          ## 📦 Chromatix $TAG
 
           | | |
           |---|---|
-          | **PowerNukkitX Version** | $TAG |
+          | **Chromatix Version** | $TAG |
           | **API Version** | $API_VERSION |
           | **Minecraft Version** | $MINECRAFT_VERSION |
           | **Protocol Version** | $PROTOCOL_VERSION |
@@ -458,7 +458,7 @@ jobs:
             cat >> release-notes.md << EOF
 
           ### 🚀 How to Update
-          1. Download \`powernukkitx.jar\` from the assets below.
+          1. Download \`chromatix.jar\` from the assets below.
           2. Replace the JAR in your server directory.
           3. Restart your server.
           EOF
@@ -485,7 +485,7 @@ jobs:
             # gh release edit leaves it pointing at whatever it was created from.
             git tag -f "$TAG" "$RELEASE_SHA"
             git push -f origin "refs/tags/$TAG"
-            gh release upload "$TAG" build/powernukkitx.jar --clobber
+            gh release upload "$TAG" build/chromatix.jar --clobber
             gh release edit "$TAG" \
               --notes-file release-notes.md \
               --draft="$IS_DRAFT" \
@@ -499,5 +499,5 @@ jobs:
               --draft="$IS_DRAFT" \
               --prerelease="$IS_PRERELEASE" \
               --latest=false \
-              build/powernukkitx.jar
+              build/chromatix.jar
           fi

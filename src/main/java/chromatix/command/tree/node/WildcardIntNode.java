@@ -1,7 +1,7 @@
 package chromatix.command.tree.node;
 
 /**
- * Represents an integer parameter node that supports wildcard input ('*') for PowerNukkitX command trees.
+ * Represents an integer parameter node that supports wildcard input ('*') for Chromatix command trees.
  * <p>
  * This node is used for all command parameters of type {@link chromatix.command.data.CommandParamType#WILDCARD_INT WILDCARD_INT}
  * if no custom {@link IParamNode} is specified. When the wildcard '*' is input, the result is set to the default value (by default {@link Integer#MIN_VALUE}).
@@ -13,9 +13,9 @@ package chromatix.command.tree.node;
  *   <li>Used as the default node for wildcard integer parameters.</li>
  * </ul>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see ParamNode
- * @since PowerNukkitX 1.19.50
+ * @since Chromatix 1.19.50
  * <p>
  * Represents an {@link IntNode} that can accept wildcards. When a wildcard is entered, the parsed result will default to {@link #defaultV}.
  * <p>

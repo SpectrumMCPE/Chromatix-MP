@@ -32,7 +32,7 @@ import java.util.List;
  * dataVersions.versions.add(new CommandData());
  * </pre>
  *
- * @author PowerNukkitX Project Team
+ * @author Chromatix Project Team
  * @see NukkitCommandData
  */
 public class CommandDataVersions {

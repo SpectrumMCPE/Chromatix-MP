@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 /**
- * Represents a function file containing a sequence of commands to be executed in PowerNukkitX.
+ * Represents a function file containing a sequence of commands to be executed in Chromatix.
  * <p>
  * This class loads and stores a list of commands from a file, allowing batch execution as a single function.
  * It supports parsing, filtering, and dispatching commands to a {@link CommandSender}.
@@ -37,8 +37,8 @@ import java.util.List;
  * boolean success = function.dispatch(player);
  * </pre>
  *
- * @author PowerNukkitX Project Team
- * @since PowerNukkitX 2.0.0
+ * @author Chromatix Project Team
+ * @since Chromatix 2.0.0
  */
 @Getter
 public class Function {
