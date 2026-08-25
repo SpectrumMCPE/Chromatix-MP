@@ -1,0 +1,48 @@
+name: Chromatix Nightly
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  nightly:
+    name: Build and release nightly JAR
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v5.7.0
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      - name: Make Gradle executable
+        run: chmod +x gradlew
+
+      - name: Build shadow JAR
+        run: ./gradlew shadowJar --no-daemon --console=plain
+
+      - name: Verify artifact
+        run: test -s build/chromatix.jar
+
+      - name: Create or update nightly release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete nightly --yes --cleanup-tag || true
+          gh release create nightly build/chromatix.jar \
+            --target "$GITHUB_SHA" \
+            --title "Chromatix Nightly" \
+            --notes "Manual nightly build from $GITHUB_SHA." \
+            --prerelease
