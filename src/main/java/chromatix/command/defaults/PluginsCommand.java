@@ -5,6 +5,7 @@ import chromatix.command.CommandSender;
 import chromatix.command.data.CommandParameter;
 import chromatix.command.tree.ParamList;
 import chromatix.command.utils.CommandLogger;
+import chromatix.plugin.InternalPlugin;
 import chromatix.plugin.Plugin;
 import chromatix.utils.TextFormat;
 
@@ -37,13 +38,18 @@ public class PluginsCommand extends Command implements CoreCommand {
     private void sendPluginList(CommandSender sender, CommandLogger log) {
         StringBuilder list = new StringBuilder();
         Map<String, Plugin> plugins = sender.getServer().getPluginManager().getPlugins();
+        int pluginCount = 0;
         for (Plugin plugin : plugins.values()) {
+            if (plugin == InternalPlugin.INSTANCE) {
+                continue;
+            }
             if (list.length() > 0) {
                 list.append(TextFormat.WHITE + ", ");
             }
             list.append(plugin.isEnabled() ? TextFormat.GREEN : TextFormat.RED);
             list.append(plugin.getDescription().getFullName());
+            pluginCount++;
         }
-        log.addMessage("nukkit.command.plugins.success", String.valueOf(plugins.size()), list.toString()).output();
+        log.addMessage("nukkit.command.plugins.success", String.valueOf(pluginCount), list.toString()).output();
     }
 }
